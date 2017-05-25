@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnPicUp.setOnClickListener(new View.OnClickListener() {
+        btnPicUp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, jenre_toukei.class);
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnPicUp.setOnClickListener(new View.OnClickListener() {
+        btnPicUp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, rireki.class);
