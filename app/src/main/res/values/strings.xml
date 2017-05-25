@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">Mark of RISS</string>
-    <string name="hide1919">hideMAX</string>
-    <string name="migita">migita</string>
-    <string name="migita2">migita</string>
-    <string name="migita3">migita</string>
-    <string name="hide">hide</string>
-    <string name="uema">uema from migita</string>
-    <string name="hide19191919">いきすぎぃ</string>
-    <string name="hide1919191919">いきすぎた</string>
+    <string name="nendai">年代別出題</string>
+    <string name="jannru">ジャンル別出題</string>
+    <string name="rireki">履歴情報</string>
+    <string name="toukei">統計情報</string>
 </resources>
