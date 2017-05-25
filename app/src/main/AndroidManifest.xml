@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".genre"></activity>
+        <activity android:name=".genre" />
+        <activity android:name=".jenre_toukei"></activity>
     </application>
 
 </manifest>
