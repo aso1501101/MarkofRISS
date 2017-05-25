@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".genre" />
         <activity android:name=".jenre_toukei" />
-        <activity android:name=".rireki"></activity>
+        <activity android:name=".rireki" />
+        <activity android:name=".Answer"></activity>
     </application>
 
 </manifest>
