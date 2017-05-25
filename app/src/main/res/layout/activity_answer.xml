@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context="jp.ac.asojuku.jousenb.markofriss.Answer">
 
+    <LinearLayout
+        android:layout_width="371dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="終わる" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="次へ" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
