@@ -14,17 +14,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnPicUp = ( Button ) this.findViewById ( R.id.button );
+        Button btnPicUp = ( Button ) this.findViewById ( R.id.button2 );
+        Button btnPicUp2 = ( Button ) this.findViewById ( R.id.button4 );
+        Button btnPicUp3 = ( Button ) this.findViewById ( R.id.button3 );
 
         btnPicUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(MainActivity.this, genre.class);
-
                 startActivity(intent);
-
             }
         });
+
+        btnPicUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, jenre_toukei.class);
+                startActivity(intent);
+            }
+        });
+
+        btnPicUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, rireki.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

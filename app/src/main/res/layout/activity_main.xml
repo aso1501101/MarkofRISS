@@ -10,24 +10,24 @@
         android:text="@string/jannru"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="233dp"
-        tools:layout_editor_absoluteX="74dp"
-        android:id="@+id/button" />
+        tools:layout_editor_absoluteY="315dp"
+        tools:layout_editor_absoluteX="64dp"
+        android:id="@+id/button2" />
 
     <Button
         android:text="@string/nendai"
         android:layout_width="225dp"
         android:layout_height="55dp"
-        tools:layout_editor_absoluteY="303dp"
-        tools:layout_editor_absoluteX="74dp"
-        android:id="@+id/button2" />
+        tools:layout_editor_absoluteY="244dp"
+        tools:layout_editor_absoluteX="73dp"
+        android:id="@+id/button" />
 
     <Button
         android:text="@string/rireki"
         android:layout_width="225dp"
         android:layout_height="60dp"
-        tools:layout_editor_absoluteY="374dp"
-        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="371dp"
+        tools:layout_editor_absoluteX="68dp"
         android:id="@+id/button3" />
 
     <Button

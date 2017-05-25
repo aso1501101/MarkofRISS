@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".genre" />
-        <activity android:name=".jenre_toukei"></activity>
+        <activity android:name=".jenre_toukei" />
+        <activity android:name=".rireki"></activity>
     </application>
 
 </manifest>
