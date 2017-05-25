@@ -4,4 +4,12 @@
     <string name="jannru">ジャンル別出題</string>
     <string name="rireki">履歴情報</string>
     <string name="toukei">統計情報</string>
+    <string name="sc">セキュリティ</string>
+    <string name="sc_kanri">セキュリティ管理</string>
+    <string name="sc_hyoka">セキュリティ技術評価</string>
+    <string name="sc_taisaku">情報セキュリティ対策</string>
+    <string name="sc_gijutu">セキュリティ実装技術</string>
+    <string name="db_nw">データベース・セキュリティ</string>
+    <string name="si_so">システム・ソフトウェア</string>
+    <string name="ma_si">マネジメント・システム監査</string>
 </resources>
