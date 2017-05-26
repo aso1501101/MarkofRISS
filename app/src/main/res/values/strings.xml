@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Mark of RISS</string>
-    <string name="hide1919">hideMAX</string>
-    <string name="migita">migita</string>
-    <string name="migita2">migita</string>
-    <string name="migita3">migita</string>
-    <string name="hide">hide</string>
-    <string name="uema">uema from migita</string>
-    <string name="hide19191919">いきすぎぃ</string>
-    <string name="hide1919191919">いきすぎた</string>
-    <string name="hide4545">粋スギィ！</string>
+    <string name="nendai">年代別出題</string>
+    <string name="jannru">ジャンル別出題</string>
+    <string name="rireki">履歴情報</string>
+    <string name="toukei">統計情報</string>
+    <string name="sc">セキュリティ</string>
+    <string name="sc_kanri">セキュリティ管理</string>
+    <string name="sc_hyoka">セキュリティ技術評価</string>
+    <string name="sc_taisaku">情報セキュリティ対策</string>
+    <string name="sc_gijutu">セキュリティ実装技術</string>
+    <string name="db_nw">データベース・セキュリティ</string>
+    <string name="si_so">システム・ソフトウェア</string>
+    <string name="ma_si">マネジメント・システム監査</string>
 </resources>
