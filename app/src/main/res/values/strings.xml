@@ -12,4 +12,5 @@
     <string name="db_nw">データベース・セキュリティ</string>
     <string name="si_so">システム・ソフトウェア</string>
     <string name="ma_si">マネジメント・システム監査</string>
+    <string name="jannru_to">ジャンル別統計</string>
 </resources>
