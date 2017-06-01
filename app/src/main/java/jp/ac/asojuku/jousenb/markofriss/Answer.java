@@ -1,3 +1,7 @@
+/**
+ * date:20170526
+ * name:uema
+ */
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.support.v7.app.AppCompatActivity;
