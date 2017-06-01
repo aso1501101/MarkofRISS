@@ -20,6 +20,8 @@
         <activity android:name=".rireki" />
         <activity android:name=".Answer" />
         <activity android:name=".years"></activity>
+        <activity android:name=".Answer" />
+        <activity android:name=".result"></activity>
     </application>
 
 </manifest>
