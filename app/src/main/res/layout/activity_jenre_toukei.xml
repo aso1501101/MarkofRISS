@@ -18,7 +18,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/29s01"
+        app:srcCompat="@drawable/s29_01"
         tools:layout_editor_absoluteX="66dp"
         tools:layout_editor_absoluteY="122dp" />
 
