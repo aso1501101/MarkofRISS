@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnPicUp = ( Button ) this.findViewById ( R.id.button2 );
         Button btnPicUp2 = ( Button ) this.findViewById ( R.id.button4 );
         Button btnPicUp3 = ( Button ) this.findViewById ( R.id.button3 );
+        Button btnPicUp4 = ( Button ) this.findViewById ( R.id.button );
 
         btnPicUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, rireki.class);
+                startActivity(intent);
+            }
+        });
+
+        btnPicUp4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, years.class);
                 startActivity(intent);
             }
         });
