@@ -20,9 +20,17 @@ public class years extends AppCompatActivity {
         //Listの作成
         ArrayList<String> items = new ArrayList<>();
         // データを準備
-        items.add("hide");
-        items.add("ひで");
-        items.add("HIDE");
+        items.add("29年度春期試験");
+        items.add("28年度秋期試験");
+        items.add("28年度春期試験");
+        items.add("27年度秋期試験");
+        items.add("26年度春期試験");
+        items.add("25年度秋期試験");
+        items.add("25年度春期試験");
+        items.add("24年度秋期試験");
+        items.add("24年度春期試験");
+
+
 
         //Adapterの作成
         //第二引数のレイアウトにandroid付属のレイアウトを指定する
