@@ -1,55 +1,37 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
-import android.os.PersistableBundle;
+import java.util.ArrayList;
+
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import static android.R.attr.id;
+import static android.R.id.list;
 
 public class years extends AppCompatActivity {
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_years);
 
-    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        //Listの作成
+        ArrayList<String> list = new ArrayList<>();
         // アイテムを追加します
-        adapter.add("29年");
-        adapter.add("28年");
-        adapter.add("27年");
-        ListView listView = (ListView) findViewById(id.listview);
-        // アダプターを設定します
+        list.add("hide");
+        list.add("ひで");
+        list.add("HIDE");
+
+        //Adapterの作成
+        //第二引数のレイアウトにandroid付属のレイアウトを指定する
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+
+        // ListViewにAdapterを関連付ける
+        ListView listView = (ListView) findViewById(R.id.listview1);
         listView.setAdapter(adapter);
-        // リストビューのアイテムがクリックされた時に呼び出されるコールバックリスナーを登録します
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ListView listView = (ListView) parent;
-                //クリックされたアイテムを取得します
-                String item = (String) listView.getItemAtPosition(position);
-                Toast.makeText(years.this, item, Toast.LENGTH_LONG).show();
-            }
-        });
-        //リストビューのアイテムが選択された時に呼び出されるコールバックリスナーを登録します
-        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ListView listView = (ListView) parent;
-                //選択されたアイテムを取得します
-                String item = (String) listView.getSelectedItem();
-                Toast.makeText(years, this, item, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 }
