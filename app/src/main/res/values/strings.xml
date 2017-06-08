@@ -13,4 +13,5 @@
     <string name="si_so">システム・ソフトウェア</string>
     <string name="ma_si">マネジメント・システム監査</string>
     <string name="jannru_to">ジャンル別統計</string>
+    <string name="ap_taisaku">SC午前対策</string>
 </resources>
