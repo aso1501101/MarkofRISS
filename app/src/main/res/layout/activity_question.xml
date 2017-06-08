@@ -10,7 +10,7 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A"
+        android:text="ア"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="447dp" />
 
@@ -18,7 +18,7 @@
         android:id="@+id/button13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="B"
+        android:text="イ"
         tools:layout_editor_absoluteX="111dp"
         tools:layout_editor_absoluteY="447dp" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/button14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="C"
+        android:text="ウ"
         tools:layout_editor_absoluteX="199dp"
         tools:layout_editor_absoluteY="447dp" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="D"
+        android:text="エ"
         tools:layout_editor_absoluteX="287dp"
         tools:layout_editor_absoluteY="447dp" />
 
