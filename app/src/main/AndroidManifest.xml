@@ -19,9 +19,10 @@
         <activity android:name=".jenre_toukei" />
         <activity android:name=".rireki" />
         <activity android:name=".Answer" />
-        <activity android:name=".years"></activity>
+        <activity android:name=".years" />
         <activity android:name=".Answer" />
-        <activity android:name=".result"></activity>
+        <activity android:name=".result" />
+        <activity android:name=".question"></activity>
     </application>
 
 </manifest>

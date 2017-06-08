@@ -16,7 +16,7 @@ public class years extends AppCompatActivity {
         setContentView(R.layout.activity_years);
 
         ListView listView = (ListView) findViewById(R.id.listview1);
-
+        //(;_;)
         //Listの作成
         ArrayList<String> items = new ArrayList<>();
         // データを準備
