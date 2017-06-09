@@ -13,6 +13,9 @@ import android.widget.ImageView;
 
 public class Answer extends AppCompatActivity {
 
+    String ans = "";
+    String id = "";
+
         public void exacta(View v){
         ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
     }
@@ -28,9 +31,11 @@ public class Answer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
 
-        Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
-        Button btnnext = (Button)this.findViewById(R.id.btnnext);
+        Intent intent = getIntent();
+        ans = intent.getStringExtra("ans");
+        id = intent.getStringExtra("id");
 
+        Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,10 +44,11 @@ public class Answer extends AppCompatActivity {
             }
         });
 
+        Button btnnext = (Button)this.findViewById(R.id.btnnext);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Answer.this,);
+                Intent intent = new Intent(Answer.this,question.class);
                 startActivity(intent);
             }
         });
