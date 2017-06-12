@@ -16,7 +16,7 @@ public class Answer extends AppCompatActivity {
     String ans = "";
     String id = "";
 
-        public void exacta(View v){
+    public void exacta(View v){
         ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
     }
 

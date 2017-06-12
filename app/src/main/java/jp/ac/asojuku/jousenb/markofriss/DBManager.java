@@ -12,14 +12,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBManager extends SQLiteOpenHelper{
 
     public DBManager(Context context) {
-        super(context, "realhide.sqlite3", null, 1);
+        super(context, "realhide.sqlite3", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE genre ( `genre_id` TEXT, `genre_name` TEXT, `genre_seikai` INTEGER, `genre_count` INTEGER, PRIMARY KEY(`genre_id`) )");
-        db.execSQL("CREATE TABLE question ( `mondai_id` TEXT, `year` TEXT, `season` TEXT, `genre_id` TEXT, `mondai_answer` TEXT, `answer` TEXT, `imgpath` TEXT, PRIMARY KEY(`mondai_id`) )");
-        db.execSQL("CREATE TABLE rireki ( `mondai_id` TEXT, `monda_flg` TEXT, PRIMARY KEY(`mondai_id`) )");
+        db.execSQL("CREATE TABLE IF NOT EXISTS genre ( `genre_id` TEXT, `genre_name` TEXT, `genre_seikai` INTEGER, `genre_count` INTEGER, PRIMARY KEY(`genre_id`) )");
+        db.execSQL("CREATE TABLE IF NOT EXISTS question ( `mondai_id` TEXT, `year` TEXT, `season` TEXT, `genre_id` TEXT, `mondai_answer` TEXT, `answer` TEXT, `imgpath` TEXT, PRIMARY KEY(`mondai_id`) )");
+        db.execSQL("CREATE TABLE IF NOT EXISTS rireki ( `mondai_id` TEXT, `monda_flg` TEXT, PRIMARY KEY(`mondai_id`) )");
+        db.execSQL("INSERT INTO `genre` VALUES ('1','ｾｷｭﾘﾃｨ',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('2','ｾｷｭﾘﾃｨ管理',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('3','セキュリティ技術評価',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('4','情報セキュリティ対策',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('5','セキュリティ実装技術',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('6','DBネットワーク',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('7','システムソフトウェア',0,0)");
+        db.execSQL("INSERT INTO `genre` VALUES ('8','マネジメントシステム監査',0,0)");
     }
 
     @Override
