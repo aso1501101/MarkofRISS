@@ -3,6 +3,9 @@ package jp.ac.asojuku.jousenb.markofriss;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,7 +18,7 @@ public class years extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_years);
 
-        ListView listView = (ListView) findViewById(R.id.listview1);
+        final ListView listView = (ListView) findViewById(R.id.listview1);
         //(;_;)
         //Listの作成
         ArrayList<String> items = new ArrayList<>();
@@ -30,13 +33,21 @@ public class years extends AppCompatActivity {
         items.add("24年度秋期試験");
         items.add("24年度春期試験");
 
-
-
         //Adapterの作成
         //第二引数のレイアウトにandroid付属のレイアウトを指定する
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
 
         // ListViewに表示
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListView list = (ListView)parent;
+                String msg= "ItemClick : " + (String)list.getItemAtPosition(position);
+                Log.v("OnItemClick", msg);
+            }
+        });
     }
+
 }
