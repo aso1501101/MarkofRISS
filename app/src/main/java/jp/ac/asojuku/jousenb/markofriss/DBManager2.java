@@ -18,7 +18,7 @@ import java.io.OutputStream;
 public class DBManager2 extends SQLiteOpenHelper {
 
     private static final String DB_FILE_NAME = "sample.sqlite3";
-    private static final String DB_NAME = "realhide.sqlite3";
+    private static final String DB_NAME = "realhide2.sqlite3";
     private static final int DB_VERSION = 1;
 
     private Context context;

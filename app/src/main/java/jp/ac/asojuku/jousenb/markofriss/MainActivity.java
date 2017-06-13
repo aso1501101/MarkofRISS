@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
-    DBManager dbm;
+    DBManager2 dbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        dbm = new DBManager(this);
+        dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
         Button btnPicUp = (Button) this.findViewById(R.id.button2);
