@@ -1,6 +1,7 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +12,17 @@ import static jp.ac.asojuku.jousenb.markofriss.R.id.imageView2;
 
 public class question extends AppCompatActivity {
 
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
         imageView3.setImageResource(R.drawable.s29_01);
@@ -24,8 +32,10 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "a";
+                String answer = dbm.selectanswer(sqlDB,"29s01");
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
+                intent.putExtra("ans",answer);
                 startActivity(intent);
             }
         });
@@ -59,5 +69,11 @@ public class question extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }
