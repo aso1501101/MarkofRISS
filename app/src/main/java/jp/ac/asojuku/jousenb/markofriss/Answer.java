@@ -10,11 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Answer extends AppCompatActivity {
 
     String ans = "";
-    String id = "";
+    String correct = "";
 
     public void exacta(View v){
         ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
@@ -30,10 +31,18 @@ public class Answer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         Intent intent = getIntent();
         ans = intent.getStringExtra("ans");
-        id = intent.getStringExtra("id");
+        correct = intent.getStringExtra("ANSWER");
+
+        TextView tv = (TextView)findViewById(R.id.TextViewseikai);
+        tv.setText(correct);
 
         Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
