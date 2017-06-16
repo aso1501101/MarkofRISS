@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+
 
 /**
  * Created by user on 2017/06/12.
@@ -19,7 +21,7 @@ public class DBManager2 extends SQLiteOpenHelper {
 
     private static final String DB_FILE_NAME = "sample.sqlite3";
     private static final String DB_NAME = "realhide2.sqlite3";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     private Context context;
     private File dbPath;
@@ -79,7 +81,7 @@ public class DBManager2 extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onUpgrade(db, oldVersion, newVersion);
+
     }
 
     // CopyUtilsからのコピペ
@@ -114,15 +116,44 @@ public class DBManager2 extends SQLiteOpenHelper {
         cursor.close();
         return result;
     }
+    public String selectHitokotoRandom2(SQLiteDatabase db) {
+        String result = null;
+        String select = "SELECT * FROM question WHERE mondai_id = '29s01'";
 
-    public SQLiteCursor selectHitokotoList(SQLiteDatabase db) {
-        String selectSql = "SELECT * FROM genre ORDER BY _id";
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(selectSql, null);
-        return cursor;
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select, null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
     }
 
-    public void deleteHitokoto(SQLiteDatabase db, int id) {
-        String deleteSql = "DELETE FROM hitokoto WHERE _id = ?";
-        db.execSQL(deleteSql, new String[]{String.valueOf(id)});
+    public ArrayList<String> select(SQLiteDatabase db) {
+        String result = null;
+        String select = "SELECT imgpath FROM genre ORDER BY RANDOM()";
+
+        ArrayList<String> mondais = new ArrayList<>();
+        Mondaimodel mon = new Mondaimodel();
+
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        try {
+            mondais = new ArrayList<>(cursor.getCount());
+            while (cursor.moveToNext()){
+                //mon.path = cursor.getString(cursor.getColumnIndex("imgpath"));
+                mondais.add(cursor.getString(cursor.getColumnIndex("imgpath")));
+            }
+        }finally {
+            cursor.close();
+        }
+        return mondais;
+    }
+
+    public SQLiteCursor selectHitokotoList(SQLiteDatabase db) {
+        String selectSql = "SELECT * FROM genre";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(selectSql, null);
+        return cursor;
     }
 }

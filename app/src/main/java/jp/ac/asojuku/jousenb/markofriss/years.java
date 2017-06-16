@@ -1,6 +1,8 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,10 +14,21 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class years extends AppCompatActivity {
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+
         setContentView(R.layout.activity_years);
 
         final ListView listView = (ListView) findViewById(R.id.listview1);
@@ -24,6 +37,10 @@ public class years extends AppCompatActivity {
         ArrayList<String> items = new ArrayList<>();
         // データを準備
         items.add("29年度春期試験");
+
+
+        //２９ｓ０１　　　リストに２５いれる
+
         items.add("28年度秋期試験");
         items.add("28年度春期試験");
         items.add("27年度秋期試験");
@@ -46,8 +63,15 @@ public class years extends AppCompatActivity {
                 ListView list = (ListView)parent;
                 String msg= "ItemClick : " + (String)list.getItemAtPosition(position);
                 Log.v("OnItemClick", msg);
+
+                String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
+
+                //Log.v("取得データ", hitokoto);
+
+                Intent intent = new Intent(years.this, question.class);
+                intent.putExtra("hitokoto" ,hitokoto);
+                startActivity(intent);
             }
         });
     }
-
 }
