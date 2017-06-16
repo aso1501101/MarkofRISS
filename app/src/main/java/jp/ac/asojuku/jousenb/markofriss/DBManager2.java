@@ -97,10 +97,29 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
 
+
+
+
+
     public void insertHitokoto(SQLiteDatabase db, String inputMessage) {
         String sql = "INSERT INTO hitokoto(phrase) VALUES(?)";
 
         db.execSQL(sql, new String[]{inputMessage});
+    }
+
+    public  String selectanswer(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT mondai_answer FROM question WHERE mondai_id = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(0);
+        }
+
+        cursor.close();
+        return  result;
     }
 
     public String selectHitokotoRandom(SQLiteDatabase db) {
@@ -149,6 +168,20 @@ public class DBManager2 extends SQLiteOpenHelper {
             cursor.close();
         }
         return mondais;
+    }
+
+    public String select29s(SQLiteDatabase db) {
+        String result = null;
+        String select = "SELECT imagepath FROM question ";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select, null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(1);
+        }
+        cursor.close();
+        return result;
     }
 
     public SQLiteCursor selectHitokotoList(SQLiteDatabase db) {

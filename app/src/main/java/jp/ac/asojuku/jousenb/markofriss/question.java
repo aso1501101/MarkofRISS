@@ -1,6 +1,7 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 import static jp.ac.asojuku.jousenb.markofriss.R.id.imageView2;
 
 public class question extends AppCompatActivity {
+
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +32,12 @@ public class question extends AppCompatActivity {
         String hitokoto = intent.getStringExtra("hitokoto");
         String hitokoto2 = "answer";
 
-        ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+
+        ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
+        imageView3.setImageResource(R.drawable.s29_01);
+
         //imageView3.setImageResource(R.drawable.s29_01);
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(hitokoto2),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
@@ -40,8 +50,10 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "a";
+                String answer = dbm.selectanswer(sqlDB,"29s01");
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER", a);
+                intent.putExtra("ANSWER",a);
+                intent.putExtra("ans",answer);
                 startActivity(intent);
             }
         });
@@ -51,7 +63,7 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String b = "b";
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER", b);
+                intent.putExtra("ANSWER",b);
                 startActivity(intent);
             }
         });
@@ -61,7 +73,7 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String c = "c";
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER", c);
+                intent.putExtra("ANSWER",c);
                 startActivity(intent);
             }
         });
@@ -71,12 +83,15 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String d = "d";
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER", d);
+                intent.putExtra("ANSWER",d);
                 startActivity(intent);
             }
         });
+    }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }
-
