@@ -41,8 +41,11 @@ public class Answer extends AppCompatActivity {
         ans = intent.getStringExtra("ans");
         correct = intent.getStringExtra("ANSWER");
 
-        TextView tv = (TextView)findViewById(R.id.TextViewseikai);
-        tv.setText(correct);
+        TextView a = (TextView)findViewById(R.id.TextViewseikai);
+        a.setText(correct);
+
+        TextView tv = (TextView)findViewById(R.id.textViewanswer);
+        tv.setText(ans);
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
         tv2.setText(ans);
