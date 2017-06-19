@@ -21,7 +21,7 @@ public class DBManager2 extends SQLiteOpenHelper {
 
     private static final String DB_FILE_NAME = "sample.sqlite3";
     private static final String DB_NAME = "realhide2.sqlite3";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     private Context context;
     private File dbPath;
@@ -96,20 +96,10 @@ public class DBManager2 extends SQLiteOpenHelper {
         return count;
     }
 
-
-
-
-
-
-    public void insertHitokoto(SQLiteDatabase db, String inputMessage) {
-        String sql = "INSERT INTO hitokoto(phrase) VALUES(?)";
-
-        db.execSQL(sql, new String[]{inputMessage});
-    }
-
+    //答え表示よう
     public  String selectanswer(SQLiteDatabase db, String id) {
         String result = null;
-        String select = "SELECT mondai_answer FROM question WHERE mondai_id = ?";
+        String select = "SELECT mondai_answer FROM question WHERE no = ?";
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
@@ -122,6 +112,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         return  result;
     }
 
+    //テスト用
     public String selectHitokotoRandom(SQLiteDatabase db) {
         String result = null;
         String select = "SELECT * FROM genre ORDER BY RANDOM()";
@@ -135,6 +126,8 @@ public class DBManager2 extends SQLiteOpenHelper {
         cursor.close();
         return result;
     }
+
+    //テスト用
     public String selectHitokotoRandom2(SQLiteDatabase db) {
         String result = null;
         String select = "SELECT * FROM question WHERE mondai_id = '29s01'";
@@ -149,13 +142,50 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
+    //テスト用
+    public String selectcount2(SQLiteDatabase db , String count) {
+
+        String result = null;
+        String select = "SELECT * FROM question WHERE no = '1' ;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = count;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+    public String selectcount(SQLiteDatabase db , String count) {
+
+        String result = null;
+        String select = "SELECT * FROM question WHERE no = ? ;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = count;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+    //問題画像表示用
     public ArrayList<String> select(SQLiteDatabase db) {
         String result = null;
         String select = "SELECT imgpath FROM genre ORDER BY RANDOM()";
 
         ArrayList<String> mondais = new ArrayList<>();
         Mondaimodel mon = new Mondaimodel();
-
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
         try {
@@ -170,6 +200,8 @@ public class DBManager2 extends SQLiteOpenHelper {
         return mondais;
     }
 
+
+
     public String select29s(SQLiteDatabase db) {
         String result = null;
         String select = "SELECT imagepath FROM question ";
@@ -182,11 +214,5 @@ public class DBManager2 extends SQLiteOpenHelper {
         }
         cursor.close();
         return result;
-    }
-
-    public SQLiteCursor selectHitokotoList(SQLiteDatabase db) {
-        String selectSql = "SELECT * FROM genre";
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(selectSql, null);
-        return cursor;
     }
 }

@@ -64,12 +64,12 @@ public class years extends AppCompatActivity {
                 String msg= "ItemClick : " + (String)list.getItemAtPosition(position);
                 Log.v("OnItemClick", msg);
 
-                String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
+                //String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
 
                 //Log.v("取得データ", hitokoto);
 
                 Intent intent = new Intent(years.this, question.class);
-                intent.putExtra("hitokoto" ,hitokoto);
+                intent.putExtra("count" ,"1");
                 startActivity(intent);
             }
         });
