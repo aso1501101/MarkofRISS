@@ -51,8 +51,8 @@ public class question extends AppCompatActivity {
         btnSelectA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String a = "a";
-                String answer = dbm.selectanswer(sqlDB,count);
+                String a = "ア";
+                String answer = dbm.selectanswer(sqlDB,"29s01");
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
@@ -69,7 +69,7 @@ public class question extends AppCompatActivity {
         btnSelectB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String b = "b";
+                String b = "イ";
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",b);
                 startActivity(intent);
@@ -79,7 +79,7 @@ public class question extends AppCompatActivity {
         btnSelectC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String c = "c";
+                String c = "ウ";
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",c);
                 startActivity(intent);
@@ -89,7 +89,7 @@ public class question extends AppCompatActivity {
         btnSelectD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String d = "d";
+                String d = "エ";
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",d);
                 startActivity(intent);

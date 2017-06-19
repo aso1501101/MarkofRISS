@@ -44,8 +44,7 @@ public class Answer extends AppCompatActivity {
         count = intent.getStringExtra("count");
 
         TextView tv = (TextView)findViewById(R.id.TextViewseikai);
-        //tv.setText(corrent);
-        tv.setText(count);
+        tv.setText(correct);
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
         tv2.setText(ans);
