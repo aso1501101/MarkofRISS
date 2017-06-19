@@ -44,6 +44,9 @@ public class Answer extends AppCompatActivity {
         TextView tv = (TextView)findViewById(R.id.TextViewseikai);
         tv.setText(correct);
 
+        TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
+        tv2.setText(ans);
+
         Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
             @Override

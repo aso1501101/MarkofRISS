@@ -111,7 +111,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         String result = null;
         String select = "SELECT mondai_answer FROM question WHERE mondai_id = ?";
 
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
 

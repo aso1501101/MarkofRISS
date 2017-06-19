@@ -16,7 +16,6 @@ public class question extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,19 +30,19 @@ public class question extends AppCompatActivity {
         Intent intent = getIntent();
         String hitokoto = intent.getStringExtra("hitokoto");
         String hitokoto2 = "answer";
+        String hitokoto3 = "s29_01";
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
-        imageView3.setImageResource(R.drawable.s29_01);
+        //imageView3.setImageResource(R.drawable.s29_01);
 
         //imageView3.setImageResource(R.drawable.s29_01);
-        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(hitokoto2),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
+        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(hitokoto3),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
         tv.setText(hitokoto);
-
 
         Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
