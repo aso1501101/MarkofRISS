@@ -52,7 +52,7 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "ア";
-                String answer = dbm.selectanswer(sqlDB,"29s01");
+                String answer = dbm.selectanswer(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
