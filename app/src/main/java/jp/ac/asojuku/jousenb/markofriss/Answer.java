@@ -16,6 +16,7 @@ public class Answer extends AppCompatActivity {
 
     String ans = "";
     String correct = "";
+    String count = "";
 
     public void exacta(View v){
         ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
@@ -40,9 +41,16 @@ public class Answer extends AppCompatActivity {
         Intent intent = getIntent();
         ans = intent.getStringExtra("ans");
         correct = intent.getStringExtra("ANSWER");
+        count = intent.getStringExtra("count");
 
         TextView tv = (TextView)findViewById(R.id.TextViewseikai);
         tv.setText(correct);
+
+        TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
+        tv2.setText(ans);
+
+        TextView tv3 = (TextView)findViewById(R.id.textView6);
+        tv3.setText(count);
 
         Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +66,9 @@ public class Answer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Answer.this,question.class);
+
+                intent.putExtra("count" ,count);
+
                 startActivity(intent);
             }
         });
