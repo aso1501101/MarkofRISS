@@ -32,7 +32,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button_"
+                android:id="@+id/button_sc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sc"
@@ -41,7 +41,7 @@
                 tools:layout_editor_absoluteY="182dp" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/button_sck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sc_kanri"
@@ -55,7 +55,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/button_scg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sc_hyoka"
@@ -64,7 +64,7 @@
                 tools:layout_editor_absoluteY="262dp" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/button_sct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sc_taisaku"
@@ -78,7 +78,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button_scj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sc_gijutu"
@@ -87,7 +87,7 @@
                 tools:layout_editor_absoluteY="339dp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button_dn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/db_nw"
@@ -101,7 +101,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/button_ss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/si_so"
@@ -110,7 +110,7 @@
                 tools:layout_editor_absoluteY="410dp" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/button_ms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ma_si"

@@ -22,10 +22,13 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-//repositories {
-//    maven { url "https://jitpack.io" }
+//allprojects {
+//    repositories {
+//        maven { url "https://jitpack.io" }
+//    }
 //}
-//
+
+
 //dependencies {
-//    compile 'com.github.PhilJay:MPAndroidChart:v2.1.5'
+//   compile 'com.github.PhilJay:MPAndroidChart:v2.1.5'
 //}
