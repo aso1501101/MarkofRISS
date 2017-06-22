@@ -49,8 +49,6 @@ public class Answer extends AppCompatActivity {
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
         tv2.setText(ans);
 
-        TextView tv3 = (TextView)findViewById(R.id.textView6);
-        tv3.setText(count);
 
         Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {

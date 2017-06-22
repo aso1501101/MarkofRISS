@@ -99,7 +99,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     //答え表示よう
     public  String selectanswer(SQLiteDatabase db, String id) {
         String result = null;
-        String select = "SELECT mondai_answer FROM question WHERE no = ?";
+        String select = "SELECT mondai_answer　 FROM question WHERE no = ?";
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
