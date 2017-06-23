@@ -53,9 +53,11 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "ア";
                 String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
 
                 int countx = Integer.parseInt(count);
                 countx = countx + 1;
@@ -71,9 +73,11 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "イ";
                 String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
 
                 int countx = Integer.parseInt(count);
                 countx = countx + 1;
@@ -89,9 +93,11 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "ウ";
                 String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
 
                 int countx = Integer.parseInt(count);
                 countx = countx + 1;
@@ -107,9 +113,11 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "エ";
                 String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
 
                 int countx = Integer.parseInt(count);
                 countx = countx + 1;
