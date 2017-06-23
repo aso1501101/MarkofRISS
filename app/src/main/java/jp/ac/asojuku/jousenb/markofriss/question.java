@@ -53,9 +53,11 @@ public class question extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "ア";
                 String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
 
                 int countx = Integer.parseInt(count);
                 countx = countx + 1;
@@ -69,9 +71,19 @@ public class question extends AppCompatActivity {
         btnSelectB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String b = "イ";
+                String a = "イ";
+                String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER",b);
+                intent.putExtra("ANSWER",a);
+                intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+
+                int countx = Integer.parseInt(count);
+                countx = countx + 1;
+                String countst = String.valueOf(countx);
+                intent.putExtra("count",countst);
+
                 startActivity(intent);
             }
         });
@@ -79,9 +91,19 @@ public class question extends AppCompatActivity {
         btnSelectC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String c = "ウ";
+                String a = "ウ";
+                String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER",c);
+                intent.putExtra("ANSWER",a);
+                intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+
+                int countx = Integer.parseInt(count);
+                countx = countx + 1;
+                String countst = String.valueOf(countx);
+                intent.putExtra("count",countst);
+
                 startActivity(intent);
             }
         });
@@ -89,9 +111,19 @@ public class question extends AppCompatActivity {
         btnSelectD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String d = "エ";
+                String a = "エ";
+                String answer = dbm.selectanswer(sqlDB,count);
+                String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
-                intent.putExtra("ANSWER",d);
+                intent.putExtra("ANSWER",a);
+                intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+
+                int countx = Integer.parseInt(count);
+                countx = countx + 1;
+                String countst = String.valueOf(countx);
+                intent.putExtra("count",countst);
+
                 startActivity(intent);
             }
         });

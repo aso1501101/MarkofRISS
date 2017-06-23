@@ -7,12 +7,12 @@
     tools:context="jp.ac.asojuku.jousenb.markofriss.Answer">
 
     <LinearLayout
-        android:layout_width="371dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:id="@+id/linearLayout">
+        tools:layout_editor_absoluteY="8dp">
 
         <Button
             android:id="@+id/btnfinish"
@@ -51,27 +51,24 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/TextViewseikai">
+
     <TextView
         android:id="@+id/textViewanswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="25sp"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/TextViewseikai"
+        android:layout_marginTop="15dp"
+        android:text="TextView"
+        android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewanswer"
-        android:layout_alignStart="@+id/textViewanswer"
-        android:layout_below="@+id/textViewanswer"
-        android:layout_marginLeft="77dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="94dp"
-        android:text="TextView" />
-
-
+    </ScrollView>
 </RelativeLayout>

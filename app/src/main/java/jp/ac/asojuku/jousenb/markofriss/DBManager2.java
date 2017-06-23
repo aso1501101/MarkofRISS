@@ -99,7 +99,7 @@ public class DBManager2 extends SQLiteOpenHelper {
 
     //↓SQL--------------------------------------------------------------------------
 
-    //答え表示よう
+    //答え表示用
     public  String selectanswer(SQLiteDatabase db, String id) {
         String result = null;
         String select = "SELECT mondai_answer FROM question WHERE no = ?";
@@ -109,6 +109,24 @@ public class DBManager2 extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
             result = cursor.getString(0);
+
+        }
+
+        cursor.close();
+        return  result;
+    }
+
+    //正解の記号を持ってくる
+    public  String selectkigo(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT answer FROM question WHERE no = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(0);
+
         }
 
         cursor.close();

@@ -5,6 +5,7 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,16 +18,7 @@ public class Answer extends AppCompatActivity {
     String ans = "";
     String correct = "";
     String count = "";
-
-    public void exacta(View v){
-        ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
-    }
-
-
-    public void noesexacto(View v){
-        ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
-    }
-
+    String seikai = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +34,20 @@ public class Answer extends AppCompatActivity {
         ans = intent.getStringExtra("ans");
         correct = intent.getStringExtra("ANSWER");
         count = intent.getStringExtra("count");
+        seikai = intent.getStringExtra("seikai");
+
+        if (correct.equals(seikai)) {
+                ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
+        } else {
+            ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
+        }
 
         TextView tv = (TextView)findViewById(R.id.TextViewseikai);
-        tv.setText(correct);
+        tv.setText(seikai);
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
         tv2.setText(ans);
 
-        TextView tv3 = (TextView)findViewById(R.id.textView6);
-        tv3.setText(count);
 
         Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
