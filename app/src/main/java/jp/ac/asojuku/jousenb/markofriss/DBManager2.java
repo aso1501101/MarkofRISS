@@ -96,6 +96,9 @@ public class DBManager2 extends SQLiteOpenHelper {
         return count;
     }
 
+
+    //↓SQL--------------------------------------------------------------------------
+
     //答え表示よう
     public  String selectanswer(SQLiteDatabase db, String id) {
         String result = null;
@@ -161,6 +164,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
+    //真・問題表示
     public String selectcount(SQLiteDatabase db , String count) {
 
         String result = null;
@@ -179,40 +183,28 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
-    //問題画像表示用
-    public ArrayList<String> select(SQLiteDatabase db) {
+    //真・履歴問題表示
+    public String selectrireki(SQLiteDatabase db , String year) {
+
         String result = null;
-        String select = "SELECT imgpath FROM genre ORDER BY RANDOM()";
+        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = year;
 
-        ArrayList<String> mondais = new ArrayList<>();
-        Mondaimodel mon = new Mondaimodel();
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
-        try {
-            mondais = new ArrayList<>(cursor.getCount());
-            while (cursor.moveToNext()){
-                //mon.path = cursor.getString(cursor.getColumnIndex("imgpath"));
-                mondais.add(cursor.getString(cursor.getColumnIndex("imgpath")));
-            }
-        }finally {
-            cursor.close();
-        }
-        return mondais;
-    }
-
-
-
-    public String select29s(SQLiteDatabase db) {
-        String result = null;
-        String select = "SELECT imagepath FROM question ";
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select, null);
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
 
-            result = cursor.getString(1);
+            result = cursor.getString(6);
         }
         cursor.close();
         return result;
+    }
+
+    //フラグ変更
+    public void flgupdate(SQLiteDatabase db, int id){
+        String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE mondai_id = ?";
+        db.execSQL(deleteSql,new String[]{String.valueOf(id)});
     }
 }
