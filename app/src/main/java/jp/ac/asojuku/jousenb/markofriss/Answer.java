@@ -19,6 +19,7 @@ public class Answer extends AppCompatActivity {
     String correct = "";
     String count = "";
     String seikai = "";
+    int counts = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class Answer extends AppCompatActivity {
 
         if (correct.equals(seikai)) {
                 ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
+                counts = counts + 1;
         } else {
             ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
         }
@@ -54,6 +56,7 @@ public class Answer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Answer.this, result.class);
+                intent.putExtra("counts",counts);
                 startActivity(intent);
             }
         });
