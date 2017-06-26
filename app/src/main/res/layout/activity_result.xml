@@ -45,4 +45,13 @@
         android:textAlignment="center"
         android:textSize="100dp" />
 
+    <Button
+        android:id="@+id/btntop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:text="トップに戻る" />
+
 </RelativeLayout>
