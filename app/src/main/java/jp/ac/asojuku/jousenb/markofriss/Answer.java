@@ -56,7 +56,9 @@ public class Answer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Answer.this, result.class);
-                intent.putExtra("counts",counts);
+
+                String countst = String.valueOf(counts);
+                intent.putExtra("counts",countst);
                 intent.putExtra("count",count);
                 startActivity(intent);
             }
