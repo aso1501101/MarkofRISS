@@ -57,6 +57,7 @@ public class Answer extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Answer.this, result.class);
                 intent.putExtra("counts",counts);
+                intent.putExtra("count",count);
                 startActivity(intent);
             }
         });
