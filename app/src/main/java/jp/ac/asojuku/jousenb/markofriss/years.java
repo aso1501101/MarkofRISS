@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -57,12 +58,18 @@ public class years extends AppCompatActivity {
         // ListViewに表示
         listView.setAdapter(adapter);
 
+        //タッチしたとこのデータが送られる・・・はず
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListView list = (ListView)parent;
-                String msg= "ItemClick : " + (String)list.getItemAtPosition(position);
-                Log.v("OnItemClick", msg);
+                String item = (String)listView.getItemAtPosition(position);
+
+                // 通知ダイアログを表示
+                Toast.makeText(years.this,
+                        item, Toast.LENGTH_LONG
+                ).show();
+
 
                 //String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
 
