@@ -243,9 +243,84 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
-    //フラグ変更
-    public void flgupdate(SQLiteDatabase db, int id){
+    //真・履歴問題表示
+    public String selectrireki3(SQLiteDatabase db , String path) {
+
+        String result = null;
+        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+    //不正解フラグ変更
+    public void flgJ(SQLiteDatabase db, int id){
         String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE mondai_id = ?";
         db.execSQL(deleteSql,new String[]{String.valueOf(id)});
+    }
+    //正解フラグ変更
+    public void flgR(SQLiteDatabase db, int id){
+        String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE mondai_id = ?";
+        db.execSQL(deleteSql,new String[]{String.valueOf(id)});
+    }
+    //不正解問題表示
+    public String huseikai(SQLiteDatabase db , String year) {
+        String result = null;
+        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J';";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = year;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+    //答え表示用
+    public  String pathanswer(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT mondai_answer FROM question WHERE imgpath = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(0);
+
+        }
+
+        cursor.close();
+        return  result;
+    }
+
+    //正解の記号を持ってくる
+    public  String pathkigo(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT answer FROM question WHERE imgpath = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(0);
+
+        }
+
+        cursor.close();
+        return  result;
     }
 }
