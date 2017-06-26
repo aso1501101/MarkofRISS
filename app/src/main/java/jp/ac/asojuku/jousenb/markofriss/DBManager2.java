@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-
+import jp.ac.asojuku.jousenb.markofriss.Mondaimodel;
 
 /**
  * Created by user on 2017/06/12.
@@ -215,6 +215,29 @@ public class DBManager2 extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
             result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+    //真・履歴問題表示改
+    public Mondaimodel selectrireki2(SQLiteDatabase db , String year) {
+
+        Mondaimodel result = new Mondaimodel();
+        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = year;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result.set_id(cursor.getString(0));
+            result.set_Ans(cursor.getString(5));
+            result.set_Ansk(cursor.getString(4));
+            result.set_Path(cursor.getString(6));
+
         }
         cursor.close();
         return result;

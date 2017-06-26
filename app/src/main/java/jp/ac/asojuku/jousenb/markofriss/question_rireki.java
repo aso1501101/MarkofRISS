@@ -31,11 +31,13 @@ public class question_rireki extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
-        String path = dbm.selectrireki(sqlDB,"29");
+        Mondaimodel mondai = dbm.selectrireki2(sqlDB,"29");
+
+        String path = mondai.get_Path();
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
-        tv.setText("29年度");
+        tv.setText(mondai.get_Ans());
 
         Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
