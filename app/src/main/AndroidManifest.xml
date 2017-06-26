@@ -22,7 +22,8 @@
         <activity android:name=".years" />
         <activity android:name=".result" />
         <activity android:name=".question" />
-        <activity android:name=".question_rireki"></activity>
+        <activity android:name=".question_rireki" />
+        <activity android:name=".Answer_rireki"></activity>
     </application>
 
 </manifest>
