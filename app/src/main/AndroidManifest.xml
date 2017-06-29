@@ -22,7 +22,8 @@
         <activity android:name=".years" />
         <activity android:name=".Answer" />
         <activity android:name=".result" />
-        <activity android:name=".question"></activity>
+        <activity android:name=".question" />
+        <activity android:name=".genrequestion"></activity>
     </application>
 
 </manifest>

@@ -197,6 +197,26 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
+    //ジャンル問題
+    public String selectgenre(SQLiteDatabase db , String genre) {
+
+        String result = null;
+        String select = "SELECT * FROM question WHERE genre_id = ? ;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = genre;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+
     //問題画像表示用
     public ArrayList<String> select(SQLiteDatabase db) {
         String result = null;
