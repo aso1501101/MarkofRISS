@@ -24,7 +24,7 @@ public class Answer_rireki extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer);
+        setContentView(R.layout.activity_answer_rireki);
     }
 
     @Override
@@ -36,6 +36,7 @@ public class Answer_rireki extends AppCompatActivity {
         correct = intent.getStringExtra("ANSWER");
         count = intent.getStringExtra("path");
         seikai = intent.getStringExtra("seikai");
+        final String flg = intent.getStringExtra("flg");
 
         if (correct.equals(seikai)) {
             ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
@@ -68,8 +69,12 @@ public class Answer_rireki extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Answer_rireki.this,question_rireki.class);
-
+                Intent intent = null;
+                if (flg == "g"){
+                    intent = new Intent(Answer_rireki.this, genrequestion.class);
+                }else {
+                    intent = new Intent(Answer_rireki.this, question_rireki.class);
+                }
                 intent.putExtra("count" ,count);
 
                 startActivity(intent);

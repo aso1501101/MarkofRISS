@@ -32,12 +32,10 @@ public class genrequestion extends AppCompatActivity {
         Intent intent = getIntent();
         genre = intent.getStringExtra("genre");
 
-
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
-
 
         final String path = dbm.selectgenre(sqlDB,genre);
 
@@ -49,10 +47,16 @@ public class genrequestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "ア";
-                String answer = dbm.selectanswer(sqlDB,path);
-                Intent intent = new Intent(genrequestion.this, Answer.class);
+                String answer = dbm.pathanswer(sqlDB,path);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
+
+                intent.putExtra("path",path);
 
                 startActivity(intent);
             }
@@ -62,11 +66,16 @@ public class genrequestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "イ";
-                String answer = dbm.selectanswer(sqlDB,path);
-                Intent intent = new Intent(genrequestion.this, Answer.class);
+                String answer = dbm.pathanswer(sqlDB,path);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
 
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
@@ -76,10 +85,15 @@ public class genrequestion extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "ウ";
                 String answer = dbm.pathanswer(sqlDB,path);
-                Intent intent = new Intent(genrequestion.this, Answer.class);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
 
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
@@ -89,10 +103,15 @@ public class genrequestion extends AppCompatActivity {
             public void onClick(View v) {
                 String a = "エ";
                 String answer = dbm.pathanswer(sqlDB,path);
-                Intent intent = new Intent(genrequestion.this, Answer.class);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
+                intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
 
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
