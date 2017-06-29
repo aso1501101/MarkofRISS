@@ -35,7 +35,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btnsck = (Button)this.findViewById(R.id.button_sck);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btnsck.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
@@ -47,7 +47,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btnscg = (Button)this.findViewById(R.id.button_scg);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btnscg.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
@@ -59,7 +59,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btnsct = (Button)this.findViewById(R.id.button_sct);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btnsct.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
@@ -71,7 +71,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btnscj = (Button)this.findViewById(R.id.button_scj);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btnscj.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
@@ -83,7 +83,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btndn = (Button)this.findViewById(R.id.button_dn);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btndn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
@@ -95,7 +95,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btnss = (Button)this.findViewById(R.id.button_ss);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btnss.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
@@ -107,7 +107,7 @@ public class genre extends AppCompatActivity {
         });
 
         Button btnms = (Button)this.findViewById(R.id.button_ms);
-        btnsc.setOnClickListener(new View.OnClickListener(){
+        btnms.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);

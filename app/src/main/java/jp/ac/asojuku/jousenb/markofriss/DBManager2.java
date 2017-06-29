@@ -203,7 +203,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     public String selectgenre(SQLiteDatabase db , String genre) {
 
         String result = null;
-        String select = "SELECT * FROM question WHERE genre_id = ? ;";
+        String select = "SELECT * FROM question WHERE genre_id = ? ORDER BY RANDOM();";
         String aaa[];
         aaa = new String[1];
         aaa[0] = genre;
