@@ -39,7 +39,7 @@ public class genrequestion extends AppCompatActivity {
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
 
 
-        String path = dbm.selectgenre(sqlDB,genre);
+        final String path = dbm.selectgenre(sqlDB,genre);
 
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
@@ -49,15 +49,10 @@ public class genrequestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "ア";
-                String answer = dbm.selectanswer(sqlDB,count);
+                String answer = dbm.selectanswer(sqlDB,path);
                 Intent intent = new Intent(genrequestion.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
-
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
 
                 startActivity(intent);
             }
@@ -67,15 +62,10 @@ public class genrequestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "イ";
-                String answer = dbm.selectanswer(sqlDB,count);
+                String answer = dbm.selectanswer(sqlDB,path);
                 Intent intent = new Intent(genrequestion.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
-
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
 
                 startActivity(intent);
             }
@@ -85,15 +75,10 @@ public class genrequestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "ウ";
-                String answer = dbm.selectanswer(sqlDB,count);
+                String answer = dbm.pathanswer(sqlDB,path);
                 Intent intent = new Intent(genrequestion.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
-
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
 
                 startActivity(intent);
             }
@@ -103,15 +88,10 @@ public class genrequestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "エ";
-                String answer = dbm.selectanswer(sqlDB,count);
+                String answer = dbm.pathanswer(sqlDB,path);
                 Intent intent = new Intent(genrequestion.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
-
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
 
                 startActivity(intent);
             }

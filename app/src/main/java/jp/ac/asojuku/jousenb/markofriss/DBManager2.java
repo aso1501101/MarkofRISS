@@ -12,6 +12,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+import static android.R.attr.path;
+
 
 /**
  * Created by user on 2017/06/12.
@@ -216,11 +218,8 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
-
-    //問題画像表示用
-    public ArrayList<String> select(SQLiteDatabase db) {
     //真・履歴問題表示
-    public String selectrireki(SQLiteDatabase db , String year) {
+    public String selectrireki(SQLiteDatabase db,String year) {
 
         String result = null;
         String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
