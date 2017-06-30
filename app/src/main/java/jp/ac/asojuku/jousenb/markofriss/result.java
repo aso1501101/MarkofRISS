@@ -45,6 +45,5 @@ public class result extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

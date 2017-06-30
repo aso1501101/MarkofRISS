@@ -44,7 +44,7 @@ public class Answer extends AppCompatActivity {
             ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
         }
 
-        TextView tv = (TextView)findViewById(R.id.TextViewseikai);
+        TextView tv = (TextView)findViewById(R.id.textViewseikai);
         tv.setText(seikai);
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
