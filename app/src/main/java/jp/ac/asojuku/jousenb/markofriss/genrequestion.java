@@ -55,6 +55,8 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
                 intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
+
 
                 intent.putExtra("path",path);
 
@@ -74,6 +76,7 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
                 intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
                 intent.putExtra("path",path);
                 startActivity(intent);
@@ -92,6 +95,7 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
                 intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
                 intent.putExtra("path",path);
                 startActivity(intent);
@@ -110,6 +114,7 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
                 intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
                 intent.putExtra("path",path);
                 startActivity(intent);

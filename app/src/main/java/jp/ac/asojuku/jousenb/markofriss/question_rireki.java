@@ -13,7 +13,9 @@ public class question_rireki extends AppCompatActivity {
 
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
-    String path ="";
+    String path = "";
+    String count = "0";
+    String countst = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +30,36 @@ public class question_rireki extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        count = intent.getStringExtra("count");
+
+        int countx = Integer.parseInt(count);
+        countx = countx + 1;
+        final String countst = String.valueOf(countx);
+
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
-        ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
-        //Mondaimodel mondai = dbm.selectrireki2(sqlDB,"29");
-        path = dbm.selectrireki(sqlDB,"29");
+        ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
+        path = dbm.selectrireki(sqlDB, "29");
 
-        //String path = mondai.get_Path();
-        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
-
-        //TextView tv = (TextView)findViewById(R.id.textView5);
-        //tv.setText(mondai.get_Ans());
+        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path), "drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String a = "ア";
-                //String answer = dbm.selectanswer(sqlDB,);
 
-                String answer = dbm.pathanswer(sqlDB,path);
-                String seikai = dbm.pathkigo(sqlDB,path);
+                String answer = dbm.pathanswer(sqlDB, path);
+                String seikai = dbm.pathkigo(sqlDB, path);
                 Intent intent = new Intent(question_rireki.this, Answer_rireki.class);
 
-                intent.putExtra("ANSWER",a);
-                intent.putExtra("ans",answer);
-                intent.putExtra("seikai",seikai);
+                intent.putExtra("ANSWER", a);
+                intent.putExtra("ans", answer);
+                intent.putExtra("seikai", seikai);
 
-                intent.putExtra("path",path);
+                //intent.putExtra("path", path);
+                intent.putExtra("count", countst);
 
                 startActivity(intent);
             }
@@ -67,15 +70,16 @@ public class question_rireki extends AppCompatActivity {
             public void onClick(View v) {
                 String b = "イ";
 
-                String answer = dbm.pathanswer(sqlDB,path);
-                String seikai = dbm.pathkigo(sqlDB,path);
+                String answer = dbm.pathanswer(sqlDB, path);
+                String seikai = dbm.pathkigo(sqlDB, path);
                 Intent intent = new Intent(question_rireki.this, Answer_rireki.class);
 
-                intent.putExtra("ANSWER",b);
-                intent.putExtra("ans",answer);
-                intent.putExtra("seikai",seikai);
+                intent.putExtra("ANSWER", b);
+                intent.putExtra("ans", answer);
+                intent.putExtra("seikai", seikai);
 
-                intent.putExtra("path",path);
+                //intent.putExtra("path", path);
+                intent.putExtra("count", countst);
 
                 startActivity(intent);
             }
@@ -85,16 +89,18 @@ public class question_rireki extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String c = "ウ";
+
                 Intent intent = new Intent(question_rireki.this, Answer_rireki.class);
-                intent.putExtra("ANSWER",c);
-                String answer = dbm.pathanswer(sqlDB,path);
-                String seikai = dbm.pathkigo(sqlDB,path);
+                String answer = dbm.pathanswer(sqlDB, path);
+                String seikai = dbm.pathkigo(sqlDB, path);
 
-                intent.putExtra("ANSWER",c);
-                intent.putExtra("ans",answer);
-                intent.putExtra("seikai",seikai);
+                intent.putExtra("ANSWER", c);
+                intent.putExtra("ans", answer);
+                intent.putExtra("seikai", seikai);
 
-                intent.putExtra("path",path);
+                //intent.putExtra("path", path);
+                intent.putExtra("count", countst);
+
                 startActivity(intent);
             }
         });
@@ -103,17 +109,17 @@ public class question_rireki extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String d = "エ";
+
                 Intent intent = new Intent(question_rireki.this, Answer_rireki.class);
-                intent.putExtra("ANSWER",d);
+                String answer = dbm.pathanswer(sqlDB, path);
+                String seikai = dbm.pathkigo(sqlDB, path);
 
-                String answer = dbm.pathanswer(sqlDB,path);
-                String seikai = dbm.pathkigo(sqlDB,path);
+                intent.putExtra("ANSWER", d);
+                intent.putExtra("ans", answer);
+                intent.putExtra("seikai", seikai);
 
-                intent.putExtra("ANSWER",d);
-                intent.putExtra("ans",answer);
-                intent.putExtra("seikai",seikai);
-
-                intent.putExtra("path",path);
+                //intent.putExtra("path", path);
+                intent.putExtra("count", countst);
 
                 startActivity(intent);
             }

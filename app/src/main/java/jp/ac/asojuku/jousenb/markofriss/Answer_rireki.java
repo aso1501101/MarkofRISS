@@ -19,6 +19,7 @@ public class Answer_rireki extends AppCompatActivity {
     String correct = "";
     String count = "";
     String seikai = "";
+    //String path = "";
     int counts = 0;
 
     @Override
@@ -34,8 +35,10 @@ public class Answer_rireki extends AppCompatActivity {
         Intent intent = getIntent();
         ans = intent.getStringExtra("ans");
         correct = intent.getStringExtra("ANSWER");
-        count = intent.getStringExtra("path");
+        count = intent.getStringExtra("count");
+        //path = intent.getStringExtra("path");
         seikai = intent.getStringExtra("seikai");
+        final String genre = intent.getStringExtra("genre");
         final String flg = intent.getStringExtra("flg");
 
         if (correct.equals(seikai)) {
@@ -69,9 +72,10 @@ public class Answer_rireki extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = null;
-                if (flg == "g"){
+                Intent intent =  null;
+                if ("g".equals(flg)){
                     intent = new Intent(Answer_rireki.this, genrequestion.class);
+                    intent.putExtra("genre",genre);
                 }else {
                     intent = new Intent(Answer_rireki.this, question_rireki.class);
                 }
