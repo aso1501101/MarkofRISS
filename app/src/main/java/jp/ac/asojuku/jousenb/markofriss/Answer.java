@@ -5,6 +5,7 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,9 @@ public class Answer extends AppCompatActivity {
     String count = "";
     String seikai = "";
     int counts = 0;
+
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +42,19 @@ public class Answer extends AppCompatActivity {
         counts = Integer.parseInt(intent.getStringExtra("counts"));
         seikai = intent.getStringExtra("seikai");
 
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+
         if (correct.equals(seikai)) {
                 ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
                 counts = counts + 1;
+
+            dbm.flgR(sqlDB,count,"29");
+
         } else {
             ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
+
+            dbm.flgJ(sqlDB,count,"29");
         }
 
         TextView tv = (TextView)findViewById(R.id.textViewseikai);

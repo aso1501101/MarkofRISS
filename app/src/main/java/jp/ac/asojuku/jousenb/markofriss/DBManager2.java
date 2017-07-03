@@ -227,12 +227,34 @@ public class DBManager2 extends SQLiteOpenHelper {
     }*/
 
     //不正解フラグ変更
-    public void flgJ(SQLiteDatabase db, int id){
+    public void flgJx(SQLiteDatabase db, String path ,String year){
         String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE mondai_id = ?";
-        db.execSQL(deleteSql,new String[]{String.valueOf(id)});
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+        aaa[1] = "29";
+        db.execSQL(deleteSql,aaa);
+    }
+    //不正解フラグ変更
+    public void flgJ(SQLiteDatabase db, String path ,String year){
+        String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE no = ? AND year = ?";
+        String aaa[];
+        aaa = new String[2];
+        aaa[0] = path;
+        aaa[1] = "29";
+        db.execSQL(deleteSql,aaa);
     }
     //正解フラグ変更
-    public void flgR(SQLiteDatabase db, int id){
+    public void flgR(SQLiteDatabase db, String path ,String year){
+        String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE no = ? AND year = ?";
+        String aaa[];
+        aaa = new String[2];
+        aaa[0] = path;
+        aaa[1] = "29";
+        db.execSQL(deleteSql,aaa);
+    }
+    //正解フラグ変更
+    public void flgRx(SQLiteDatabase db, int id){
         String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE mondai_id = ?";
         db.execSQL(deleteSql,new String[]{String.valueOf(id)});
     }
