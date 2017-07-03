@@ -14,7 +14,7 @@ public class question_rireki extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
     String path = "";
-    String count = "0";
+    String count = "1";
     String countst = "";
 
     @Override
@@ -31,10 +31,11 @@ public class question_rireki extends AppCompatActivity {
         Intent intent = getIntent();
 
         count = intent.getStringExtra("count");
+        final String counts = intent.getStringExtra("counts");
 
         int countx = Integer.parseInt(count);
         countx = countx + 1;
-        final String countst = String.valueOf(countx);
+        countst = String.valueOf(countx);
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
@@ -60,6 +61,7 @@ public class question_rireki extends AppCompatActivity {
 
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
@@ -80,6 +82,7 @@ public class question_rireki extends AppCompatActivity {
 
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
@@ -100,6 +103,7 @@ public class question_rireki extends AppCompatActivity {
 
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
@@ -120,6 +124,7 @@ public class question_rireki extends AppCompatActivity {
 
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }

@@ -17,6 +17,8 @@ public class genrequestion extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
     String genre = "";
+    String count = "1";
+    String countst = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,13 @@ public class genrequestion extends AppCompatActivity {
 
         Intent intent = getIntent();
         genre = intent.getStringExtra("genre");
+
+        count = intent.getStringExtra("count");
+        final String counts = intent.getStringExtra("counts");
+
+        int countx = Integer.parseInt(count);
+        countx = countx + 1;
+        countst = String.valueOf(countx);
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
@@ -57,6 +66,8 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("flg","g");
                 intent.putExtra("genre",genre);
 
+                intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
 
                 intent.putExtra("path",path);
 
@@ -78,6 +89,9 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("flg","g");
                 intent.putExtra("genre",genre);
 
+                intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
+
                 intent.putExtra("path",path);
                 startActivity(intent);
             }
@@ -97,6 +111,9 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("flg","g");
                 intent.putExtra("genre",genre);
 
+                intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
+
                 intent.putExtra("path",path);
                 startActivity(intent);
             }
@@ -115,6 +132,9 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("seikai",seikai);
                 intent.putExtra("flg","g");
                 intent.putExtra("genre",genre);
+
+                intent.putExtra("count", countst);
+                intent.putExtra("counts",counts);
 
                 intent.putExtra("path",path);
                 startActivity(intent);

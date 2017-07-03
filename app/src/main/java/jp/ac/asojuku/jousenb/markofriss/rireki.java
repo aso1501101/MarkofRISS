@@ -36,7 +36,8 @@ public class rireki extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(rireki.this, question_rireki.class);
-                intent.putExtra("count","0");
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });

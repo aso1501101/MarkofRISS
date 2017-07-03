@@ -22,14 +22,16 @@ public class genre extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Intent intent = new Intent(genre.this,genrequestion.class);
+
         Button btnsc = (Button)this.findViewById(R.id.button_sc);
         btnsc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","1");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -39,9 +41,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","2");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -51,9 +53,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","3");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -63,9 +65,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","4");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -75,9 +77,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","5");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -87,9 +89,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","6");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -99,9 +101,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","7");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });
@@ -111,9 +113,9 @@ public class genre extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(genre.this,genrequestion.class);
-
                 intent.putExtra("genre","8");
-
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
                 startActivity(intent);
             }
         });

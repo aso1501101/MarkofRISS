@@ -76,6 +76,7 @@ public class years extends AppCompatActivity {
                 //Log.v("取得データ", hitokoto);
 
                 Intent intent = new Intent(years.this, question.class);
+                intent.putExtra("counts" ,"0");
                 intent.putExtra("count" ,"1");
                 startActivity(intent);
             }

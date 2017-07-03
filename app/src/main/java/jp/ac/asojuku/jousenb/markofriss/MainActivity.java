@@ -52,12 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btnPicUp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
-
-                //Log.v("取得データ", hitokoto);
-
                 Intent intent = new Intent(MainActivity.this, rireki.class);
-                intent.putExtra("hitokoto" ,hitokoto);
                 startActivity(intent);
             }
         });

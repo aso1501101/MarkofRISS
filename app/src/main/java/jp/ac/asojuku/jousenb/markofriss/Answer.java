@@ -35,6 +35,7 @@ public class Answer extends AppCompatActivity {
         ans = intent.getStringExtra("ans");
         correct = intent.getStringExtra("ANSWER");
         count = intent.getStringExtra("count");
+        counts = Integer.parseInt(intent.getStringExtra("counts"));
         seikai = intent.getStringExtra("seikai");
 
         if (correct.equals(seikai)) {
@@ -49,7 +50,6 @@ public class Answer extends AppCompatActivity {
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
         tv2.setText(ans);
-
 
         Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
@@ -69,8 +69,9 @@ public class Answer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Answer.this,question.class);
-
+                String countst = String.valueOf(counts);
                 intent.putExtra("count" ,count);
+                intent.putExtra("counts" ,countst);
 
                 startActivity(intent);
             }

@@ -108,9 +108,7 @@ public class DBManager2 extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
             result = cursor.getString(0);
-
         }
-
         cursor.close();
         return  result;
     }
@@ -125,62 +123,12 @@ public class DBManager2 extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
             result = cursor.getString(0);
-
         }
-
         cursor.close();
         return  result;
     }
 
-    //テスト用
-    public String selectHitokotoRandom(SQLiteDatabase db) {
-        String result = null;
-        String select = "SELECT * FROM genre ORDER BY RANDOM()";
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select, null);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-
-            result = cursor.getString(1);
-        }
-        cursor.close();
-        return result;
-    }
-
-    //テスト用
-    public String selectHitokotoRandom2(SQLiteDatabase db) {
-        String result = null;
-        String select = "SELECT * FROM question WHERE mondai_id = '29s01'";
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select, null);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-
-            result = cursor.getString(6);
-        }
-        cursor.close();
-        return result;
-    }
-
-    //テスト用
-    public String selectcount2(SQLiteDatabase db , String count) {
-
-        String result = null;
-        String select = "SELECT * FROM question WHERE no = '1' ;";
-        String aaa[];
-        aaa = new String[1];
-        aaa[0] = count;
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-
-            result = cursor.getString(6);
-        }
-        cursor.close();
-        return result;
-    }
-
+    //年代別問題表示
     public String selectcount(SQLiteDatabase db , String count) {
 
         String result = null;
@@ -199,7 +147,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
-    //ジャンル問題
+    //ジャンル問題表示
     public String selectgenre(SQLiteDatabase db , String genre) {
 
         String result = null;
@@ -238,7 +186,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //真・履歴問題表示改
-    public Mondaimodel selectrireki2(SQLiteDatabase db , String year) {
+    /*public Mondaimodel selectrireki2(SQLiteDatabase db , String year) {
 
         Mondaimodel result = new Mondaimodel();
         String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
@@ -258,10 +206,10 @@ public class DBManager2 extends SQLiteOpenHelper {
         }
         cursor.close();
         return result;
-    }
+    }*/
 
     //真・履歴問題表示
-    public String selectrireki3(SQLiteDatabase db , String path) {
+    /*public String selectrireki3(SQLiteDatabase db , String path) {
 
         String result = null;
         String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
@@ -272,12 +220,11 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
-
             result = cursor.getString(6);
         }
         cursor.close();
         return result;
-    }
+    }*/
 
     //不正解フラグ変更
     public void flgJ(SQLiteDatabase db, int id){
@@ -300,7 +247,6 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
-
             result = cursor.getString(6);
         }
         cursor.close();
@@ -315,11 +261,8 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
-
             result = cursor.getString(0);
-
         }
-
         cursor.close();
         return  result;
     }
@@ -332,12 +275,21 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
-
             result = cursor.getString(0);
-
         }
-
         cursor.close();
         return  result;
+    }
+
+    //ジャンル別の正解カウント
+    public void genrecount(SQLiteDatabase db, String ans){
+        String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where mondai_answer =? )";
+        db.execSQL(deleteSql,new String[]{String.valueOf(ans)});
+    }
+
+    //ジャンル別の不正解カウント
+    public void genrecountJ(SQLiteDatabase db, String ans){
+        String deleteSql = "UPDATE genre SET genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where mondai_answer = ?)";
+        db.execSQL(deleteSql,new String[]{String.valueOf(ans)});
     }
 }

@@ -36,6 +36,7 @@ public class Answer_rireki extends AppCompatActivity {
         ans = intent.getStringExtra("ans");
         correct = intent.getStringExtra("ANSWER");
         count = intent.getStringExtra("count");
+        counts = Integer.parseInt(intent.getStringExtra("counts"));
         //path = intent.getStringExtra("path");
         seikai = intent.getStringExtra("seikai");
         final String genre = intent.getStringExtra("genre");
@@ -79,8 +80,9 @@ public class Answer_rireki extends AppCompatActivity {
                 }else {
                     intent = new Intent(Answer_rireki.this, question_rireki.class);
                 }
+                String countst = String.valueOf(counts);
                 intent.putExtra("count" ,count);
-
+                intent.putExtra("counts" ,countst);
                 startActivity(intent);
             }
         });

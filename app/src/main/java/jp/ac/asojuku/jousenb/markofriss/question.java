@@ -31,8 +31,7 @@ public class question extends AppCompatActivity {
 
         Intent intent = getIntent();
         count = intent.getStringExtra("count");
-        //String hitokoto2 = "answer";
-        //String hitokoto3 = "s29_01";
+        final String counts = intent.getStringExtra("counts");
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
@@ -63,6 +62,7 @@ public class question extends AppCompatActivity {
                 countx = countx + 1;
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
@@ -83,6 +83,7 @@ public class question extends AppCompatActivity {
                 countx = countx + 1;
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
@@ -103,6 +104,7 @@ public class question extends AppCompatActivity {
                 countx = countx + 1;
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
@@ -123,6 +125,7 @@ public class question extends AppCompatActivity {
                 countx = countx + 1;
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
+                intent.putExtra("counts",counts);
 
                 startActivity(intent);
             }
