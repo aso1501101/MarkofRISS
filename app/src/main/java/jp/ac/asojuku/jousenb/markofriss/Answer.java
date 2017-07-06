@@ -80,12 +80,22 @@ public class Answer extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Answer.this,question.class);
-                String countst = String.valueOf(counts);
-                intent.putExtra("count" ,count);
-                intent.putExtra("counts" ,countst);
+                int countif = Integer.parseInt(count);
 
-                startActivity(intent);
+                if(countif == 26) {
+                    Intent intent = new Intent(Answer.this, result.class);
+
+                    String countst = String.valueOf(counts);
+                    intent.putExtra("counts",countst);
+                    intent.putExtra("count",count);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(Answer.this, question.class);
+                    String countst = String.valueOf(counts);
+                    intent.putExtra("count", count);
+                    intent.putExtra("counts", countst);
+                    startActivity(intent);
+                }
             }
         });
 
