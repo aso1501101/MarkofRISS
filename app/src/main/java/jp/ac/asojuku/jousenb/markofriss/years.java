@@ -35,7 +35,7 @@ public class years extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.listview1);
         //(;_;)
         //Listの作成
-        final ArrayList<String> items = new ArrayList<>();
+        ArrayList<String> items = new ArrayList<>();
         // データを準備
         items.add("29年度春期試験");
 
@@ -49,6 +49,8 @@ public class years extends AppCompatActivity {
         items.add("26年度春期試験");
         items.add("25年度秋期試験");
         items.add("25年度春期試験");
+        items.add("24年度秋期試験");
+        items.add("24年度春期試験");
 
         //Adapterの作成
         //第二引数のレイアウトにandroid付属のレイアウトを指定する

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.asojuku.jousenb.markofriss.Answer">
+    tools:context="jp.ac.asojuku.jousenb.markofriss.Answer_rireki">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -39,7 +39,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/textViewseikai"
+        android:id="@+id/TextViewseikai"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_marginLeft="19dp"
@@ -57,18 +57,18 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewseikai">
+        android:layout_below="@+id/TextViewseikai">
 
-    <TextView
-        android:id="@+id/textViewanswer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewseikai"
-        android:layout_marginTop="15dp"
-        android:text="TextView"
-        android:textSize="25sp" />
+        <TextView
+            android:id="@+id/textViewanswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TextViewseikai"
+            android:layout_marginTop="15dp"
+            android:text="TextView"
+            android:textSize="25sp" />
 
     </ScrollView>
 </RelativeLayout>

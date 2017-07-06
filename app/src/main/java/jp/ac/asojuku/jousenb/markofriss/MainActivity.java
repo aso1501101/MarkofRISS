@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
-        Button btnPicUp = (Button) this.findViewById(R.id.button2);
-        Button btnPicUp2 = (Button) this.findViewById(R.id.button4);
+        Button btnPicUp = (Button) this.findViewById(R.id.button);
+        Button btnPicUp2 = (Button) this.findViewById(R.id.button2);
         Button btnPicUp3 = (Button) this.findViewById(R.id.button3);
-        Button btnPicUp4 = (Button) this.findViewById(R.id.button);
+        Button btnPicUp4 = (Button) this.findViewById(R.id.button4);
 
         btnPicUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, genre.class);
+                Intent intent = new Intent(MainActivity.this, years.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnPicUp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, jenre_toukei.class);
+                Intent intent = new Intent(MainActivity.this, genre.class);
                 startActivity(intent);
             }
         });
@@ -52,12 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btnPicUp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
-
-                //Log.v("取得データ", hitokoto);
-
                 Intent intent = new Intent(MainActivity.this, rireki.class);
-                intent.putExtra("hitokoto" ,hitokoto);
                 startActivity(intent);
             }
         });
@@ -65,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         btnPicUp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, years.class);
+                Intent intent = new Intent(MainActivity.this, jenre_toukei.class);
                 startActivity(intent);
             }
         });

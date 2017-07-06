@@ -12,57 +12,64 @@ import android.widget.TextView;
 
 import static jp.ac.asojuku.jousenb.markofriss.R.id.imageView2;
 
-public class question extends AppCompatActivity {
+public class genrequestion extends AppCompatActivity {
 
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
-    String count = "";
+    String genre = "";
+    String count = "1";
+    String countst = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.activity_genrequestion);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.activity_genrequestion);
 
         Intent intent = getIntent();
+        genre = intent.getStringExtra("genre");
+
         count = intent.getStringExtra("count");
         final String counts = intent.getStringExtra("counts");
+
+        int countx = Integer.parseInt(count);
+        countx = countx + 1;
+        countst = String.valueOf(countx);
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
-        //imageView3.setImageResource(R.drawable.s29_01);
 
-        String path = dbm.selectcount(sqlDB,count);
+        final String path = dbm.selectgenre(sqlDB,genre);
 
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
-        TextView tv = (TextView)findViewById(R.id.textView5);
-        tv.setText(count);
 
         Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String a = "ア";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question.this, Answer.class);
+                String answer = dbm.pathanswer(sqlDB,path);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
+
+                intent.putExtra("path",path);
 
                 startActivity(intent);
             }
@@ -72,19 +79,20 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "イ";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question.this, Answer.class);
+                String answer = dbm.pathanswer(sqlDB,path);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
 
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
@@ -93,19 +101,20 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "ウ";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question.this, Answer.class);
+                String answer = dbm.pathanswer(sqlDB,path);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
 
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
@@ -114,19 +123,20 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "エ";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question.this, Answer.class);
+                String answer = dbm.pathanswer(sqlDB,path);
+                String seikai = dbm.pathkigo(sqlDB,path);
+                Intent intent = new Intent(genrequestion.this, Answer_rireki.class);
+
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
+                intent.putExtra("flg","g");
+                intent.putExtra("genre",genre);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
 
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
