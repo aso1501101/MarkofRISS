@@ -6,52 +6,7 @@
     android:layout_height="match_parent"
     tools:context="jp.ac.asojuku.jousenb.markofriss.MainActivity">
 
-    <Button
-        android:text="@string/jannru"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="315dp"
-        tools:layout_editor_absoluteX="64dp"
-        android:id="@+id/button2"
-        android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginBottom="29dp" />
 
-    <Button
-        android:text="@string/nendai"
-        android:layout_width="225dp"
-        android:layout_height="55dp"
-        tools:layout_editor_absoluteY="244dp"
-        tools:layout_editor_absoluteX="73dp"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp" />
-
-    <Button
-        android:text="@string/rireki"
-        android:layout_width="225dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteY="371dp"
-        tools:layout_editor_absoluteX="68dp"
-        android:id="@+id/button3"
-        android:layout_above="@+id/button4"
-        android:layout_alignRight="@+id/button4"
-        android:layout_alignEnd="@+id/button4"
-        android:layout_marginBottom="27dp" />
-
-    <Button
-        android:text="@string/toukei"
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="447dp"
-        tools:layout_editor_absoluteX="74dp"
-        android:id="@+id/button4"
-        android:layout_above="@+id/button"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
-        android:layout_marginBottom="31dp" />
 
     <TextView
         android:text="@string/app_name"
@@ -66,4 +21,41 @@
         android:layout_marginTop="55dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="@string/nendai" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="@string/jannru"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/rireki"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/jannru_to"
+        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
 </RelativeLayout>
