@@ -35,21 +35,20 @@ public class years extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.listview1);
         //(;_;)
         //Listの作成
-        ArrayList<String> items = new ArrayList<>();
+        final ArrayList<String> items = new ArrayList<>();
         // データを準備
         items.add("29年度春期試験");
-
 
         //２９ｓ０１　　　リストに２５いれる
 
         items.add("28年度秋期試験");
         items.add("28年度春期試験");
         items.add("27年度秋期試験");
+        items.add("27年度春期試験");
+        items.add("26年度秋期試験");
         items.add("26年度春期試験");
         items.add("25年度秋期試験");
         items.add("25年度春期試験");
-        items.add("24年度秋期試験");
-        items.add("24年度春期試験");
 
         //Adapterの作成
         //第二引数のレイアウトにandroid付属のレイアウトを指定する
@@ -58,7 +57,7 @@ public class years extends AppCompatActivity {
         // ListViewに表示
         listView.setAdapter(adapter);
 
-        //タッチしたとこのデータが送られる・・・はず
+        //タッチしたとこのデータが送られる
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -76,7 +75,7 @@ public class years extends AppCompatActivity {
                 //Log.v("取得データ", hitokoto);
 
                 Intent intent = new Intent(years.this, question.class);
-                intent.putExtra("count" ,"1");
+                intent.putExtra("count" , item);
                 startActivity(intent);
             }
         });
