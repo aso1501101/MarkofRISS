@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static jp.ac.asojuku.jousenb.markofriss.R.id.imageView2;
+import static jp.ac.asojuku.jousenb.markofriss.R.id.imageView3;
 
 public class genrequestion extends AppCompatActivity {
 
