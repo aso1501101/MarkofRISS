@@ -33,8 +33,8 @@ public class question extends AppCompatActivity {
         count = intent.getStringExtra("count");
         final String counts = intent.getStringExtra("counts");
 
-        String year = intent.getStringExtra("year");
-        String season = intent.getStringExtra("season");
+        final String year = intent.getStringExtra("year");
+        final String season = intent.getStringExtra("season");
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
@@ -42,20 +42,22 @@ public class question extends AppCompatActivity {
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
         //imageView3.setImageResource(R.drawable.s29_01);
 
-        String path = dbm.selectcount(sqlDB,count,year);
+        String path = dbm.selectcount(sqlDB,count,year,season);
 
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
         tv.setText(count);
 
+        final String answer = dbm.selectanswer(sqlDB,count,year,season);
+        final String seikai = dbm.selectkigo(sqlDB,count,year,season);
+
         Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String a = "ア";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
+
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
@@ -66,6 +68,9 @@ public class question extends AppCompatActivity {
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
                 intent.putExtra("counts",counts);
+
+                intent.putExtra("season",season);
+                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
@@ -75,8 +80,8 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "イ";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
+                //String answer = dbm.selectanswer(sqlDB,count);
+                //String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
@@ -87,6 +92,9 @@ public class question extends AppCompatActivity {
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
                 intent.putExtra("counts",counts);
+
+                intent.putExtra("season",season);
+                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
@@ -96,8 +104,8 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "ウ";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
+                //String answer = dbm.selectanswer(sqlDB,count);
+                //String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
@@ -108,6 +116,9 @@ public class question extends AppCompatActivity {
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
                 intent.putExtra("counts",counts);
+
+                intent.putExtra("season",season);
+                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
@@ -117,8 +128,8 @@ public class question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = "エ";
-                String answer = dbm.selectanswer(sqlDB,count);
-                String seikai = dbm.selectkigo(sqlDB,count);
+                //String answer = dbm.selectanswer(sqlDB,count);
+                //String seikai = dbm.selectkigo(sqlDB,count);
                 Intent intent = new Intent(question.this, Answer.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
@@ -129,6 +140,9 @@ public class question extends AppCompatActivity {
                 String countst = String.valueOf(countx);
                 intent.putExtra("count",countst);
                 intent.putExtra("counts",counts);
+
+                intent.putExtra("season",season);
+                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
