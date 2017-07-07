@@ -48,13 +48,23 @@ public class Answer extends AppCompatActivity {
         if (correct.equals(seikai)) {
             ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
             counts = counts + 1;
-            dbm.flgR(sqlDB, count, "29");
-            dbm.genrecount(sqlDB, count, "29");
+
+            int now = Integer.parseInt(count);
+            now= now -1;
+            String uema = String.valueOf(now);
+
+            dbm.flgR(sqlDB, uema, "29");
+            dbm.genrecount(sqlDB, uema, "29");
 
         } else {
             ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
-            dbm.flgJ(sqlDB, count, "29");
-            dbm.genrecountJ(sqlDB, count, "29");
+
+            int now = Integer.parseInt(count);
+            now= now -1;
+            String uema = String.valueOf(now);
+
+            dbm.flgJ(sqlDB, uema, "29");
+            dbm.genrecountJ(sqlDB, uema, "29");
         }
 
         TextView tv = (TextView) findViewById(R.id.textViewseikai);
