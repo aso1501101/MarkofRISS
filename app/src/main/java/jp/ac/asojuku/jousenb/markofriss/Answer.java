@@ -90,6 +90,7 @@ public class Answer extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int countif = Integer.parseInt(count);
 
                 if(countif == 26) {
