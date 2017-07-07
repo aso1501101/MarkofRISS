@@ -33,13 +33,16 @@ public class question extends AppCompatActivity {
         count = intent.getStringExtra("count");
         final String counts = intent.getStringExtra("counts");
 
+        String year = intent.getStringExtra("year");
+        String season = intent.getStringExtra("season");
+
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
         //imageView3.setImageResource(R.drawable.s29_01);
 
-        String path = dbm.selectcount(sqlDB,count);
+        String path = dbm.selectcount(sqlDB,count,year);
 
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 

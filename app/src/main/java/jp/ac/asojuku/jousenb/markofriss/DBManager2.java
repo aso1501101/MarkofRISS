@@ -130,13 +130,14 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //年代別問題表示
-    public String selectcount(SQLiteDatabase db , String count) {
+    public String selectcount(SQLiteDatabase db , String count ,String year) {
 
         String result = null;
-        String select = "SELECT * FROM question WHERE no = ? AND year = '29';";
+        String select = "SELECT * FROM question WHERE no = ? AND year = ?;";
         String aaa[];
-        aaa = new String[1];
+        aaa = new String[2];
         aaa[0] = count;
+        aaa[1] = year;
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {

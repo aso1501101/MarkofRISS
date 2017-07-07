@@ -71,12 +71,13 @@ public class years extends AppCompatActivity {
                         item, Toast.LENGTH_LONG
                 ).show();
 
-
-                //String hitokoto  = dbm.selectHitokotoRandom2(sqlDB);
-
-                //Log.v("取得データ", hitokoto);
+                String year = item.substring(0,2);
+                String season = item.substring(4,5);
 
                 Intent intent = new Intent(years.this, question.class);
+                intent.putExtra("year" , year);
+                intent.putExtra("season" , season);
+
                 intent.putExtra("count" , "1");
                 intent.putExtra("counts" , "0");
                 startActivity(intent);
