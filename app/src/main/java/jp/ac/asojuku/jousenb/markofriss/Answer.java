@@ -80,12 +80,6 @@ public class Answer extends AppCompatActivity {
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Answer.this, question.class);
-                String countst = String.valueOf(counts);
-                intent.putExtra("count", count);
-                intent.putExtra("counts", countst);
-
-                startActivity(intent);
                 int countif = Integer.parseInt(count);
 
                 if(countif == 26) {
