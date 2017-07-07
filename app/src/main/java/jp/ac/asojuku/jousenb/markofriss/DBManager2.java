@@ -102,7 +102,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     //答え表示用
     public  String selectanswer(SQLiteDatabase db, String id) {
         String result = null;
-        String select = "SELECT mondai_answer FROM question WHERE no = ?";
+        String select = "SELECT mondai_answer FROM question WHERE no = ? AND year = '29'";
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
@@ -117,7 +117,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     //正解の記号を持ってくる
     public  String selectkigo(SQLiteDatabase db, String id) {
         String result = null;
-        String select = "SELECT answer FROM question WHERE no = ?";
+        String select = "SELECT answer FROM question WHERE no = ? AND year = '29'";
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
@@ -133,7 +133,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     public String selectcount(SQLiteDatabase db , String count) {
 
         String result = null;
-        String select = "SELECT * FROM question WHERE no = ? ;";
+        String select = "SELECT * FROM question WHERE no = ? AND year = '29';";
         String aaa[];
         aaa = new String[1];
         aaa[0] = count;
