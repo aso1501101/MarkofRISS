@@ -10,4 +10,9 @@ public class jenre_toukei extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jenre_toukei);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }

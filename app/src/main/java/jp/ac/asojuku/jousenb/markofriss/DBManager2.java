@@ -13,6 +13,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import static android.R.attr.path;
+import static android.R.attr.yearListItemTextAppearance;
 
 
 /**
@@ -241,7 +242,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         String aaa[];
         aaa = new String[2];
         aaa[0] = path;
-        aaa[1] = "29";
+        aaa[1] = year;
         db.execSQL(deleteSql,aaa);
     }
     //正解フラグ変更
@@ -250,7 +251,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         String aaa[];
         aaa = new String[2];
         aaa[0] = path;
-        aaa[1] = "29";
+        aaa[1] = year;
         db.execSQL(deleteSql,aaa);
     }
     //正解フラグ変更
@@ -304,14 +305,39 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //ジャンル別の正解カウント
-    public void genrecount(SQLiteDatabase db, String ans){
-        String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where mondai_answer =? )";
-        db.execSQL(deleteSql,new String[]{String.valueOf(ans)});
+    public void genrecount(SQLiteDatabase db, String no ,String year){
+        String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ?);";
+        String aaa[];
+        aaa = new String[2];
+        aaa[0] = no;
+        aaa[1] = year;
+        db.execSQL(deleteSql,aaa);
     }
 
     //ジャンル別の不正解カウント
-    public void genrecountJ(SQLiteDatabase db, String ans){
-        String deleteSql = "UPDATE genre SET genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where mondai_answer = ?)";
-        db.execSQL(deleteSql,new String[]{String.valueOf(ans)});
+    public void genrecountJ(SQLiteDatabase db, String no ,String year){
+        String deleteSql = "UPDATE genre SET genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ?)";
+        String aaa[];
+        aaa = new String[2];
+        aaa[0] = no;
+        aaa[1] = year;
+        db.execSQL(deleteSql,aaa);
+    }
+
+    //ジャンル別の正解数を持ってくる　"３"の部分が正解数”４”回答した全体数
+    public String genretoukei(SQLiteDatabase db , String genre) {
+        String result = null;
+        String select = "SELECT * FROM genre WHERE genre_id = ?";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = genre;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result = cursor.getString(3);
+        }
+        cursor.close();
+        return result;
     }
 }

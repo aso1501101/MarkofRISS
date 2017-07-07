@@ -46,40 +46,46 @@ public class Answer extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
 
         if (correct.equals(seikai)) {
-                ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
-                counts = counts + 1;
-
-            dbm.flgR(sqlDB,count,"29");
+            ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
+            counts = counts + 1;
+            dbm.flgR(sqlDB, count, "29");
+            dbm.genrecount(sqlDB, count, "29");
 
         } else {
-            ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
-
-            dbm.flgJ(sqlDB,count,"29");
+            ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
+            dbm.flgJ(sqlDB, count, "29");
+            dbm.genrecountJ(sqlDB, count, "29");
         }
 
-        TextView tv = (TextView)findViewById(R.id.textViewseikai);
+        TextView tv = (TextView) findViewById(R.id.textViewseikai);
         tv.setText(seikai);
 
-        TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
+        TextView tv2 = (TextView) findViewById(R.id.textViewanswer);
         tv2.setText(ans);
 
-        Button btnfinish = (Button)this.findViewById(R.id.btnfinish);
+        Button btnfinish = (Button) this.findViewById(R.id.btnfinish);
         btnfinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Answer.this, result.class);
 
                 String countst = String.valueOf(counts);
-                intent.putExtra("counts",countst);
-                intent.putExtra("count",count);
+                intent.putExtra("counts", countst);
+                intent.putExtra("count", count);
                 startActivity(intent);
             }
         });
 
-        Button btnnext = (Button)this.findViewById(R.id.btnnext);
+        Button btnnext = (Button) this.findViewById(R.id.btnnext);
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(Answer.this, question.class);
+                String countst = String.valueOf(counts);
+                intent.putExtra("count", count);
+                intent.putExtra("counts", countst);
+
+                startActivity(intent);
                 int countif = Integer.parseInt(count);
 
                 if(countif == 26) {
