@@ -39,12 +39,13 @@ public class years extends AppCompatActivity {
         // データを準備
         items.add("29年度春期試験");
 
-
         //２９ｓ０１　　　リストに２５いれる
 
         items.add("28年度秋期試験");
         items.add("28年度春期試験");
         items.add("27年度秋期試験");
+        items.add("27年度春期試験");
+        items.add("26年度秋期試験");
         items.add("26年度春期試験");
         items.add("25年度秋期試験");
         items.add("25年度春期試験");
@@ -58,7 +59,7 @@ public class years extends AppCompatActivity {
         // ListViewに表示
         listView.setAdapter(adapter);
 
-        //タッチしたとこのデータが送られる・・・はず
+        //タッチしたとこのデータが送られる
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -76,8 +77,8 @@ public class years extends AppCompatActivity {
                 //Log.v("取得データ", hitokoto);
 
                 Intent intent = new Intent(years.this, question.class);
-                intent.putExtra("counts" ,"0");
-                intent.putExtra("count" ,"1");
+                intent.putExtra("count" , "1");
+                intent.putExtra("counts" , "0");
                 startActivity(intent);
             }
         });
