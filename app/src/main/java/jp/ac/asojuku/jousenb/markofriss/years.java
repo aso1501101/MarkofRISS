@@ -76,6 +76,12 @@ public class years extends AppCompatActivity {
 
                 Intent intent = new Intent(years.this, question.class);
                 intent.putExtra("year" , year);
+
+                if(season.equals("秋")){
+                    season = "f";
+                }else {
+                    season = "s";
+                }
                 intent.putExtra("season" , season);
 
                 intent.putExtra("count" , "1");

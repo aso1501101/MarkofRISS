@@ -41,6 +41,8 @@ public class Answer extends AppCompatActivity {
         count = intent.getStringExtra("count");
         counts = Integer.parseInt(intent.getStringExtra("counts"));
         seikai = intent.getStringExtra("seikai");
+        final String year = intent.getStringExtra("year");
+        final String season = intent.getStringExtra("season");
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
@@ -53,8 +55,8 @@ public class Answer extends AppCompatActivity {
             now= now -1;
             String uema = String.valueOf(now);
 
-            dbm.flgR(sqlDB, uema, "29");
-            dbm.genrecount(sqlDB, uema, "29");
+            dbm.flgR(sqlDB, uema, year,season);
+            dbm.genrecount(sqlDB, uema,year,season);
 
         } else {
             ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
@@ -63,8 +65,8 @@ public class Answer extends AppCompatActivity {
             now= now -1;
             String uema = String.valueOf(now);
 
-            dbm.flgJ(sqlDB, uema, "29");
-            dbm.genrecountJ(sqlDB, uema, "29");
+            dbm.flgJ(sqlDB, uema, year,season);
+            dbm.genrecountJ(sqlDB, uema, year,season);
         }
 
         TextView tv = (TextView) findViewById(R.id.textViewseikai);
@@ -99,12 +101,17 @@ public class Answer extends AppCompatActivity {
                     String countst = String.valueOf(counts);
                     intent.putExtra("counts",countst);
                     intent.putExtra("count",count);
+                    intent.putExtra("season",season);
+                    intent.putExtra("year",year);
+
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(Answer.this, question.class);
                     String countst = String.valueOf(counts);
                     intent.putExtra("count", count);
                     intent.putExtra("counts", countst);
+                    intent.putExtra("season",season);
+                    intent.putExtra("year",year);
                     startActivity(intent);
                 }
             }

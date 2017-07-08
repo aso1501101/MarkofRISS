@@ -100,11 +100,17 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //答え表示用
-    public  String selectanswer(SQLiteDatabase db, String id) {
+    public  String selectanswer(SQLiteDatabase db, String count,String year,String season) {
         String result = null;
-        String select = "SELECT mondai_answer FROM question WHERE no = ? AND year = '29'";
+        String select = "SELECT mondai_answer FROM question WHERE no = ? AND year = ? AND season = ?;";
 
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        String aaa[];
+        aaa = new String[3];
+        aaa[0] = count;
+        aaa[1] = year;
+        aaa[2] = season;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
 
@@ -115,11 +121,17 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //正解の記号を持ってくる
-    public  String selectkigo(SQLiteDatabase db, String id) {
+    public  String selectkigo(SQLiteDatabase db, String count,String year , String season) {
         String result = null;
-        String select = "SELECT answer FROM question WHERE no = ? AND year = '29'";
+        String select = "SELECT answer FROM question WHERE no = ? AND year = ? AND season = ?;";
 
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        String aaa[];
+        aaa = new String[3];
+        aaa[0] = count;
+        aaa[1] = year;
+        aaa[2] = season;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
 
@@ -130,14 +142,15 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //年代別問題表示
-    public String selectcount(SQLiteDatabase db , String count ,String year) {
+    public String selectcount(SQLiteDatabase db , String count ,String year,String season) {
 
         String result = null;
-        String select = "SELECT * FROM question WHERE no = ? AND year = ?;";
+        String select = "SELECT * FROM question WHERE no = ? AND year = ? AND season = ?;";
         String aaa[];
-        aaa = new String[2];
+        aaa = new String[3];
         aaa[0] = count;
         aaa[1] = year;
+        aaa[2] = season;
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         if (cursor.getCount() != 0) {
@@ -229,37 +242,39 @@ public class DBManager2 extends SQLiteOpenHelper {
     }*/
 
     //不正解フラグ変更
-    public void flgJx(SQLiteDatabase db, String path ,String year){
+    /*public void flgJx(SQLiteDatabase db, String path ,String year){
         String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE mondai_id = ?";
         String aaa[];
         aaa = new String[1];
         aaa[0] = path;
         aaa[1] = "29";
         db.execSQL(deleteSql,aaa);
-    }
+    }*/
     //不正解フラグ変更
-    public void flgJ(SQLiteDatabase db, String path ,String year){
-        String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE no = ? AND year = ?";
+    public void flgJ(SQLiteDatabase db, String path ,String year,String season){
+        String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE no = ? AND year = ? AND season = ?;";
         String aaa[];
-        aaa = new String[2];
+        aaa = new String[3];
         aaa[0] = path;
         aaa[1] = year;
+        aaa[2] = season;
         db.execSQL(deleteSql,aaa);
     }
     //正解フラグ変更
-    public void flgR(SQLiteDatabase db, String path ,String year){
-        String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE no = ? AND year = ?";
+    public void flgR(SQLiteDatabase db, String path ,String year,String season){
+        String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE no = ? AND year = ? AND season = ?;";
         String aaa[];
-        aaa = new String[2];
+        aaa = new String[3];
         aaa[0] = path;
         aaa[1] = year;
+        aaa[2] = season;
         db.execSQL(deleteSql,aaa);
     }
     //正解フラグ変更
-    public void flgRx(SQLiteDatabase db, int id){
+   /* public void flgRx(SQLiteDatabase db, int id){
         String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE mondai_id = ?";
         db.execSQL(deleteSql,new String[]{String.valueOf(id)});
-    }
+    }*/
     //不正解問題表示
     public String huseikai(SQLiteDatabase db , String year) {
         String result = null;
@@ -277,7 +292,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
-    //答え表示用
+    //path答え表示用
     public  String pathanswer(SQLiteDatabase db, String id) {
         String result = null;
         String select = "SELECT mondai_answer FROM question WHERE imgpath = ?";
@@ -291,7 +306,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         return  result;
     }
 
-    //正解の記号を持ってくる
+    //path正解の記号を持ってくる
     public  String pathkigo(SQLiteDatabase db, String id) {
         String result = null;
         String select = "SELECT answer FROM question WHERE imgpath = ?";
@@ -306,22 +321,24 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //ジャンル別の正解カウント
-    public void genrecount(SQLiteDatabase db, String no ,String year){
-        String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ?);";
+    public void genrecount(SQLiteDatabase db, String no ,String year , String season){
+        String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ? AND season = ?);";
         String aaa[];
-        aaa = new String[2];
+        aaa = new String[3];
         aaa[0] = no;
         aaa[1] = year;
+        aaa[2] = season;
         db.execSQL(deleteSql,aaa);
     }
 
     //ジャンル別の不正解カウント
-    public void genrecountJ(SQLiteDatabase db, String no ,String year){
-        String deleteSql = "UPDATE genre SET genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ?)";
+    public void genrecountJ(SQLiteDatabase db, String no ,String year,String season){
+        String deleteSql = "UPDATE genre SET genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ? AND season = ?)";
         String aaa[];
-        aaa = new String[2];
+        aaa = new String[3];
         aaa[0] = no;
         aaa[1] = year;
+        aaa[2] = season;
         db.execSQL(deleteSql,aaa);
     }
 
