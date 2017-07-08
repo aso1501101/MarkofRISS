@@ -16,3 +16,6 @@ public class jenre_toukei extends AppCompatActivity {
         super.onResume();
     }
 }
+
+
+
