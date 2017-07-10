@@ -365,8 +365,8 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
-            result.set_Seikai(cursor.getInt(0));
-            result.set_Count(cursor.getInt(1));
+            result.set_Seikai(cursor.getInt(2));
+            result.set_Count(cursor.getInt(3));
         }
         cursor.close();
         return result;
