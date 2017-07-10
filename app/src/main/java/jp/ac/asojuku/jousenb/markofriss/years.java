@@ -74,12 +74,6 @@ public class years extends AppCompatActivity {
                 String year = item.substring(0,2);
                 String season = item.substring(4,5);
 
-                if (season.equals("春")) {
-                    season = "s";
-                }else{
-                    season = "f";
-                }
-
                 Intent intent = new Intent(years.this, question.class);
                 intent.putExtra("year" , year);
 

@@ -358,4 +358,101 @@ public class DBManager2 extends SQLiteOpenHelper {
         cursor.close();
         return result;
     }
+
+    public Genremodel genre1(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '1';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre2(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '2';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre3(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '3';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre4(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '4';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre5(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '5';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre6(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '6';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre7(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '7';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
+    public Genremodel genre8(SQLiteDatabase db) {
+        Genremodel result = new Genremodel();
+        String select = "SELECT * FROM genre WHERE genre_id = '8';";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result.set_Seikai(cursor.getInt(0));
+            result.set_Count(cursor.getInt(1));
+        }
+        cursor.close();
+        return result;
+    }
 }

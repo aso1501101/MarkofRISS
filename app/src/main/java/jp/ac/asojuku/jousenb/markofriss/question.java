@@ -27,7 +27,6 @@ public class question extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setContentView(R.layout.activity_question);
 
         Intent intent = getIntent();
         count = intent.getStringExtra("count");
