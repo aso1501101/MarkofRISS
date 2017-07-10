@@ -1,10 +1,14 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 2017/07/07.
  */
 
-public class Genremodel {
+public class Genremodel implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private String name;
     private int seikai;
     private int count;
