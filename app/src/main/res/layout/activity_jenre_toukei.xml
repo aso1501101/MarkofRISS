@@ -40,10 +40,10 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/text_genre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/gray"
+                    android:background="@color/orange"
                     android:gravity="center"
                     android:paddingBottom="2dp"
                     android:paddingLeft="10dp"
@@ -55,7 +55,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/seikai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/black"
@@ -69,7 +69,7 @@
                 android:textSize="14dp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/kaitou"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
@@ -84,7 +84,7 @@
                 android:textSize="14dp" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/wariai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
@@ -98,23 +98,23 @@
                 android:textColor="@color/white"
                 android:textSize="14dp" />
         </TableRow>
-
+        <!-- セキュリティ -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white" >
+            android:background="@color/gray" >
 
             <TextView
-                android:id="@+id/rowtext1"
+                android:id="@+id/genre_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:text= "①"
-                android:textColor="@color/gray" />
+                android:text= "@string/sc"
+                android:textColor="@color/orange" />
 
             <TextView
-                android:id="@+id/rowtext2"
-                android:layout_width="wrap_content"
+                android:id="@+id/seikai_1"
+                android:laout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:background="@color/white"
@@ -123,7 +123,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/rowtext3"
+                android:id="@+id/kaitou_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -133,7 +133,7 @@
                 android:textColor="@color/blue" />
 
             <TextView
-                android:id="@+id/rowtext4"
+                android:id="@+id/wariai_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -142,6 +142,315 @@
                 android:text="0"
                 android:textColor="@color/pink" />
         </TableRow>
+        <!-- セキュリティ管理 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/sc_kanri"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+        <!-- セキュリティ技術評価 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/sc_hyoka"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+        <!-- 情報セキュリティ対策 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/sc_taisaku"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+        <!-- セキュリティ実装技術 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/sc_kanri"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+        <!-- データベース・ネットワーク -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/db_nw"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+        <!-- システム・ソフトウェア -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/si_so"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+        <!-- マネジメント・システム監査 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray" >
+
+            <TextView
+                android:id="@+id/genre_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text= "@string/ma_si"
+                android:textColor="@color/orange" />
+
+            <TextView
+                android:id="@+id/seikai_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/kaitou_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:id="@+id/wariai_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/pink" />
+        </TableRow>
+
     </TableLayout>
 
 </RelativeLayout>
