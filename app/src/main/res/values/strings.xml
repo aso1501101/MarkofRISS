@@ -14,4 +14,9 @@
     <string name="ma_si">マネジメント・システム監査</string>
     <string name="jannru_to">ジャンル別統計</string>
     <string name="ap_taisaku">SC午前対策</string>
+
+    <string name="genre">ジャンル</string>
+    <string name="seikai">正解数</string>
+    <string name="kaitou">回答数</string>
+    <string name="wariai">正答率</string>
 </resources>
