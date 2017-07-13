@@ -60,13 +60,10 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btntop">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/list_miss"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/cardLinear"/>
+            android:layout_height="wrap_content" />
     </ScrollView>
 
 </RelativeLayout>

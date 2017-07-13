@@ -1,23 +1,36 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteCursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ListView;
 
-public class result extends AppCompatActivity {
+public class result extends AppCompatActivity
+    implements AdapterView.OnItemClickListener {
+
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
+
+    Intent intent = getIntent();
+    final String year = intent.getStringExtra("year");
+    final String season = intent.getStringExtra("season");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        LinearLayout cardLinear = (LinearLayout)this.findViewById(R.id.cardLinear);
+       /* LinearLayout cardLinear = (LinearLayout)this.findViewById(R.id.cardLinear);
         cardLinear.removeAllViews();
 
         for (int i = 0; i < 5; i++) {
@@ -34,7 +47,12 @@ public class result extends AppCompatActivity {
                     }
                 });
                 cardLinear.addView(linearLayout,i);
-        }
+        } */
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 
     @Override
@@ -67,5 +85,40 @@ public class result extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //リストビュー
+        ListView listMiss = (ListView)findViewById(R.id.list_miss);
+        listMiss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+        setValueToList(listMiss);
+    }
+
+    //リスト表示用
+    private void setValueToList(ListView list) {
+        SQLiteCursor cursor = null;
+
+        //データベース空間オープン
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+
+        //DBManager.javaで定義したメソッドを呼び出し
+        cursor = dbm.miss(sqlDB,year,season);
+
+        //dblayout : リストビューの表示形式を指定する
+        int dblayout = android.R.layout.simple_list_item_1;
+        //from : リストビューに表示する列
+        String[] from = { "no"};
+        //to : ListViewのどこにデータを表示するか
+        int[] to = new int[]{android.R.id.text1};
+
+        //ListViewに表示するためのアダプタを生成
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, dblayout, cursor,from,to,0);
+        //アダプタをListViewにセット
+        list.setAdapter(adapter);
     }
 }

@@ -292,6 +292,17 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
+    public SQLiteCursor miss(SQLiteDatabase db , String year , String season) {
+        String select = "SELECT * FROM question WHERE year = ? AND season = ? AND mondai_flg = 'J';";
+        String aaa[];
+        aaa = new String[2];
+        aaa[0] = year;
+        aaa[1] = season;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        return cursor;
+    }
+
     //path答え表示用
     public  String pathanswer(SQLiteDatabase db, String id) {
         String result = null;

@@ -84,6 +84,8 @@ public class Answer extends AppCompatActivity {
                 String countst = String.valueOf(counts);
                 intent.putExtra("counts", countst);
                 intent.putExtra("count", count);
+                intent.putExtra("season",season);
+                intent.putExtra("year",year);
                 startActivity(intent);
             }
         });
