@@ -5,6 +5,7 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,11 @@ public class Answer_rireki extends AppCompatActivity {
     String seikai = "";
     //String path = "";
     int counts = 0;
+    String year ="";
+    String path ="";
+
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +43,26 @@ public class Answer_rireki extends AppCompatActivity {
         correct = intent.getStringExtra("ANSWER");
         count = intent.getStringExtra("count");
         counts = Integer.parseInt(intent.getStringExtra("counts"));
+        year = intent.getStringExtra("year");
         //path = intent.getStringExtra("path");
         seikai = intent.getStringExtra("seikai");
         final String genre = intent.getStringExtra("genre");
         final String flg = intent.getStringExtra("flg");
+        path = intent.getStringExtra("path");
+
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
 
         if (correct.equals(seikai)) {
             ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.answer);
             counts = counts + 1;
+
+            dbm.flgR(sqlDB, path);
+            dbm.genrecountpath(sqlDB, path);
         } else {
             ((ImageView)findViewById(R.id.imageView)).setImageResource(R.drawable.incorrect);
+            /*dbm.flgJ(sqlDB, path);*/
+            dbm.genrecountJpath(sqlDB, path);
         }
 
         TextView tv = (TextView)findViewById(R.id.TextViewseikai);
@@ -83,6 +99,7 @@ public class Answer_rireki extends AppCompatActivity {
                 String countst = String.valueOf(counts);
                 intent.putExtra("count" ,count);
                 intent.putExtra("counts" ,countst);
+                intent.putExtra("year", year);
                 startActivity(intent);
             }
         });

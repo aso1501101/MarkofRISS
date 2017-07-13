@@ -270,13 +270,31 @@ public class DBManager2 extends SQLiteOpenHelper {
         aaa[2] = season;
         db.execSQL(deleteSql,aaa);
     }
+    //不正解フラグ変更
+    public void flgJ(SQLiteDatabase db, String path){
+        String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE imgpath = ?;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+        db.execSQL(deleteSql,aaa);
+    }
+    //正解フラグ変更
+    public void flgR(SQLiteDatabase db, String path){
+        String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE imgpath = ?;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+        db.execSQL(deleteSql,aaa);
+    }
+
+
     //正解フラグ変更
    /* public void flgRx(SQLiteDatabase db, int id){
         String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE mondai_id = ?";
         db.execSQL(deleteSql,new String[]{String.valueOf(id)});
     }*/
     //不正解問題表示
-    public String huseikai(SQLiteDatabase db , String year) {
+    /*public String huseikai(SQLiteDatabase db , String year) {
         String result = null;
         String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J';";
         String aaa[];
@@ -290,7 +308,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         }
         cursor.close();
         return result;
-    }
+    }*/
 
     public SQLiteCursor miss(SQLiteDatabase db , String year , String season) {
         String select = "SELECT * FROM question WHERE year = ? AND season = ? AND mondai_flg = 'J';";
@@ -331,6 +349,52 @@ public class DBManager2 extends SQLiteOpenHelper {
         return  result;
     }
 
+    //path何問目表示用
+    public  String pathno(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT no FROM question WHERE imgpath = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result = cursor.getString(0);
+        }
+        cursor.close();
+        return  result;
+    }
+
+    //path季節表示用
+    public  String pathseason(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT season FROM question WHERE imgpath = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result = cursor.getString(0);
+        }
+        cursor.close();
+        return  result;
+    }
+
+    //pathジャンル別の正解カウント
+    public void genrecountpath(SQLiteDatabase db, String path){
+        String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where imgpath = ?);";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+        db.execSQL(deleteSql,aaa);
+    }
+
+    //pathジャンル別の不正解カウント
+    public void genrecountJpath(SQLiteDatabase db, String path){
+        String deleteSql = "UPDATE genre SET genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where imgpath = ?)";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+        db.execSQL(deleteSql,aaa);
+    }
+
     //ジャンル別の正解カウント
     public void genrecount(SQLiteDatabase db, String no ,String year , String season){
         String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where no = ? AND year = ? AND season = ?);";
@@ -354,7 +418,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     //ジャンル別の正解数を持ってくる　"３"の部分が正解数”４”回答した全体数
-    public String genretoukei(SQLiteDatabase db , String genre) {
+    /*public String genretoukei(SQLiteDatabase db , String genre) {
         String result = null;
         String select = "SELECT * FROM genre WHERE genre_id = ?";
         String aaa[];
@@ -368,7 +432,7 @@ public class DBManager2 extends SQLiteOpenHelper {
         }
         cursor.close();
         return result;
-    }
+    }*/
 
     public Genremodel genre1(SQLiteDatabase db) {
         Genremodel result = new Genremodel();
