@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class jenre_toukei extends AppCompatActivity {
@@ -40,6 +42,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         int x = Integer.parseInt(seikai);
         int y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         int res = (x * 100) / y;
         String wariai = String.valueOf(res)+"%";
         TextView tv3 = (TextView) findViewById(R.id.wariai_1);
@@ -54,6 +59,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_2);
@@ -68,6 +76,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_3);
@@ -82,6 +93,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_4);
@@ -96,6 +110,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_5);
@@ -110,6 +127,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_6);
@@ -124,6 +144,9 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_7);
@@ -138,10 +161,22 @@ public class jenre_toukei extends AppCompatActivity {
         tv2.setText(count);
         x = Integer.parseInt(seikai);
         y = Integer.parseInt(count);
+        if(y ==0){
+            y=1;
+        }
         res = (x * 100) / y;
         wariai = String.valueOf(res)+"%";
         tv3 = (TextView) findViewById(R.id.wariai_8);
         tv3.setText(wariai);
+
+        Button btn_top = (Button)this.findViewById(R.id.btn_top);
+        btn_top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(jenre_toukei.this,MainActivity.class);
+                startActivity(intent1);
+            }
+        });
 
     }
 }
