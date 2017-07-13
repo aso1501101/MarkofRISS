@@ -22,9 +22,7 @@ public class result extends AppCompatActivity
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
 
-    Intent intent = getIntent();
-    final String year = intent.getStringExtra("year");
-    final String season = intent.getStringExtra("season");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +98,11 @@ public class result extends AppCompatActivity
 
     //リスト表示用
     private void setValueToList(ListView list) {
+
+        Intent intent = getIntent();
+        final String year = intent.getStringExtra("year");
+        final String season = intent.getStringExtra("season");
+
         SQLiteCursor cursor = null;
 
         //データベース空間オープン
