@@ -61,7 +61,7 @@
         android:layout_above="@+id/btntop">
 
         <ListView
-            android:id="@+id/list_miss"
+            android:id="@+id/listmiss"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>
