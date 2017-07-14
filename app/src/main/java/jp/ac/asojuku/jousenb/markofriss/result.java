@@ -23,6 +23,8 @@ public class result extends AppCompatActivity
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
