@@ -96,26 +96,20 @@ public class Answer extends AppCompatActivity {
             public void onClick(View v) {
 
                 int countif = Integer.parseInt(count);
-
+                Intent intent = null;
                 if(countif == 26) {
-                    Intent intent = new Intent(Answer.this, result.class);
+                    intent = new Intent(Answer.this, result.class);
 
-                    String countst = String.valueOf(counts);
-                    intent.putExtra("counts",countst);
-                    intent.putExtra("count",count);
-                    intent.putExtra("season",season);
-                    intent.putExtra("year",year);
-
-                    startActivity(intent);
                 } else {
-                    Intent intent = new Intent(Answer.this, question.class);
-                    String countst = String.valueOf(counts);
-                    intent.putExtra("count", count);
-                    intent.putExtra("counts", countst);
-                    intent.putExtra("season",season);
-                    intent.putExtra("year",year);
-                    startActivity(intent);
+                    intent = new Intent(Answer.this, question.class);
+
                 }
+                String countst = String.valueOf(counts);
+                intent.putExtra("counts",countst);
+                intent.putExtra("count",count);
+                intent.putExtra("season",season);
+                intent.putExtra("year",year);
+                startActivity(intent);
             }
         });
 

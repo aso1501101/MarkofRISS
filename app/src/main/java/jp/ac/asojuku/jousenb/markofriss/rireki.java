@@ -31,14 +31,35 @@ public class rireki extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        Button btnPicUp = (Button) this.findViewById(R.id.button5);
+        Button btnPicUp = (Button) this.findViewById(R.id.button28);
         btnPicUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(rireki.this, question_rireki.class);
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("year","28");
                 startActivity(intent);
+            }
+        });
+        Button btnPicUp2 = (Button) this.findViewById(R.id.button29);
+        btnPicUp2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(rireki.this, question_rireki.class);
+                intent.putExtra("counts" ,"0");
+                intent.putExtra("count","1");
+                intent.putExtra("year","29");
+                startActivity(intent);
+            }
+        });
+
+        Button btn_top = (Button)this.findViewById(R.id.btn_top);
+        btn_top.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(rireki.this,MainActivity.class);
+                startActivity(intent1);
             }
         });
     }

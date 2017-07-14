@@ -16,6 +16,7 @@ public class question_rireki extends AppCompatActivity {
     String path = "";
     String count = "1";
     String countst = "";
+    String year = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class question_rireki extends AppCompatActivity {
 
         count = intent.getStringExtra("count");
         final String counts = intent.getStringExtra("counts");
+        year = intent.getStringExtra("year");
 
         int countx = Integer.parseInt(count);
         countx = countx + 1;
@@ -41,9 +43,18 @@ public class question_rireki extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
-        path = dbm.selectrireki(sqlDB, "29");
+        path = dbm.selectrireki(sqlDB, year);
 
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path), "drawable", "jp.ac.asojuku.jousenb.markofriss"));
+
+        String season = dbm.pathseason(sqlDB,path);
+        if(season.equals("f")){
+            season = "秋";
+        }else {
+            season = "春";
+        }
+        TextView tv = (TextView)findViewById(R.id.textView5);
+        tv.setText(count+"問目  "+year+"年度"+season+"  問"+dbm.pathno(sqlDB,path));
 
         Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +73,8 @@ public class question_rireki extends AppCompatActivity {
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
+                intent.putExtra("year", year);
+                intent.putExtra("path",path);
 
                 startActivity(intent);
             }
@@ -83,7 +96,8 @@ public class question_rireki extends AppCompatActivity {
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
-
+                intent.putExtra("year", year);
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
@@ -104,7 +118,8 @@ public class question_rireki extends AppCompatActivity {
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
-
+                intent.putExtra("year", year);
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });
@@ -125,7 +140,8 @@ public class question_rireki extends AppCompatActivity {
                 //intent.putExtra("path", path);
                 intent.putExtra("count", countst);
                 intent.putExtra("counts",counts);
-
+                intent.putExtra("year", year);
+                intent.putExtra("path",path);
                 startActivity(intent);
             }
         });

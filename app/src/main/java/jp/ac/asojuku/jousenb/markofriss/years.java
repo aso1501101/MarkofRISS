@@ -66,27 +66,56 @@ public class years extends AppCompatActivity {
                 ListView list = (ListView)parent;
                 String item = (String)listView.getItemAtPosition(position);
 
-                // 通知ダイアログを表示
-                Toast.makeText(years.this,
-                        item, Toast.LENGTH_LONG
-                ).show();
+                if (item.equals("29年度春期試験")) {
+                    // 通知ダイアログを表示
+                    Toast.makeText(years.this,
+                            item, Toast.LENGTH_LONG
+                    ).show();
+                    String year = item.substring(0,2);
+                    String season = item.substring(4,5);
 
-                String year = item.substring(0,2);
-                String season = item.substring(4,5);
+                    Intent intent = new Intent(years.this, question.class);
+                    intent.putExtra("year" , year);
 
-                Intent intent = new Intent(years.this, question.class);
-                intent.putExtra("year" , year);
+                    if(season.equals("秋")){
+                        season = "f";
+                    }else {
+                        season = "s";
+                    }
+                    intent.putExtra("season" , season);
 
-                if(season.equals("秋")){
-                    season = "f";
+                    intent.putExtra("count" , "1");
+                    intent.putExtra("counts" , "0");
+                    startActivity(intent);
+                }else if(item.equals("28年度秋期試験")){
+                    // 通知ダイアログを表示
+                    Toast.makeText(years.this,
+                            item, Toast.LENGTH_LONG
+                    ).show();
+                    String year = item.substring(0,2);
+                    String season = item.substring(4,5);
+
+                    Intent intent = new Intent(years.this, question.class);
+                    intent.putExtra("year" , year);
+
+                    if(season.equals("秋")){
+                        season = "f";
+                    }else {
+                        season = "s";
+                    }
+                    intent.putExtra("season" , season);
+
+                    intent.putExtra("count" , "1");
+                    intent.putExtra("counts" , "0");
+                    startActivity(intent);
                 }else {
-                    season = "s";
+                    item="Coming soon...";
+                    Toast.makeText(years.this,
+                            item, Toast.LENGTH_LONG
+                    ).show();
                 }
-                intent.putExtra("season" , season);
 
-                intent.putExtra("count" , "1");
-                intent.putExtra("counts" , "0");
-                startActivity(intent);
+
             }
         });
     }
