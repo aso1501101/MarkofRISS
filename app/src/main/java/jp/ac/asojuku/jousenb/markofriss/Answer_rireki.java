@@ -81,6 +81,7 @@ public class Answer_rireki extends AppCompatActivity {
                 String countst = String.valueOf(counts);
                 intent.putExtra("counts",countst);
                 intent.putExtra("count",count);
+                intent.putExtra("flg","unk");
                 startActivity(intent);
             }
         });

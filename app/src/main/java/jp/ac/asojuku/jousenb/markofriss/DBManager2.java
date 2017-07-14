@@ -311,7 +311,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     }*/
 
     public SQLiteCursor miss(SQLiteDatabase db , String year , String season) {
-        String select = "SELECT * FROM question WHERE year = ? AND season = ? AND mondai_flg = 'J';";
+        String select = "SELECT no || '問目' AS '_id' FROM question WHERE year = ? AND season = ? AND mondai_flg = 'J';";
         String aaa[];
         aaa = new String[2];
         aaa[0] = year;
@@ -320,6 +320,12 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         return cursor;
     }
+    public SQLiteCursor miss(SQLiteDatabase db) {
+        String select = "SELECT no || '問目' AS '_id' FROM question;";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        return cursor;
+    }
+
 
     //path答え表示用
     public  String pathanswer(SQLiteDatabase db, String id) {
@@ -367,6 +373,19 @@ public class DBManager2 extends SQLiteOpenHelper {
     public  String pathseason(SQLiteDatabase db, String id) {
         String result = null;
         String select = "SELECT season FROM question WHERE imgpath = ?";
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result = cursor.getString(0);
+        }
+        cursor.close();
+        return  result;
+    }
+    //path季節表示用
+    public  String pathyear(SQLiteDatabase db, String id) {
+        String result = null;
+        String select = "SELECT year FROM question WHERE imgpath = ?";
 
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,new String[]{id});
         if (cursor.getCount() != 0) {
@@ -433,6 +452,8 @@ public class DBManager2 extends SQLiteOpenHelper {
         cursor.close();
         return result;
     }*/
+
+
 
     public Genremodel genre1(SQLiteDatabase db) {
         Genremodel result = new Genremodel();

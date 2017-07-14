@@ -23,13 +23,13 @@ public class genrequestion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_genrequestion);
+        setContentView(R.layout.activity_question);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        setContentView(R.layout.activity_genrequestion);
+        setContentView(R.layout.activity_question);
 
         Intent intent = getIntent();
         genre = intent.getStringExtra("genre");
@@ -47,6 +47,16 @@ public class genrequestion extends AppCompatActivity {
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
 
         final String path = dbm.selectgenre(sqlDB,genre);
+
+        String season = dbm.pathseason(sqlDB,path);
+        String year = dbm.pathyear(sqlDB,path);
+        if(season.equals("f")){
+            season = "秋";
+        }else {
+            season = "春";
+        }
+        TextView tv = (TextView)findViewById(R.id.textView5);
+        tv.setText(count+"問目  "+year+"年度"+season+"  問"+dbm.pathno(sqlDB,path));
 
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
