@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:shrinkColumns="0"
         android:stretchColumns="0"
-        android:layout_below="@id/textView2">
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="35dp">
 
         <TableRow
             android:id="@+id/tableRow1"
