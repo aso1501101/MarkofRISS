@@ -67,6 +67,7 @@ public class Answer extends AppCompatActivity {
 
             dbm.flgJ(sqlDB, uema, year,season);
             dbm.genrecountJ(sqlDB, uema, year,season);
+            dbm.insertuema(sqlDB, uema,year,season);
         }
 
         TextView tv = (TextView) findViewById(R.id.textViewseikai);

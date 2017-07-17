@@ -200,56 +200,6 @@ public class DBManager2 extends SQLiteOpenHelper {
         return result;
     }
 
-    //真・履歴問題表示改
-    /*public Mondaimodel selectrireki2(SQLiteDatabase db , String year) {
-
-        Mondaimodel result = new Mondaimodel();
-        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
-        String aaa[];
-        aaa = new String[1];
-        aaa[0] = year;
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-
-            result.set_id(cursor.getString(0));
-            result.set_Ans(cursor.getString(5));
-            result.set_Ansk(cursor.getString(4));
-            result.set_Path(cursor.getString(6));
-
-        }
-        cursor.close();
-        return result;
-    }*/
-
-    //真・履歴問題表示
-    /*public String selectrireki3(SQLiteDatabase db , String path) {
-
-        String result = null;
-        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J' ORDER BY RANDOM();";
-        String aaa[];
-        aaa = new String[1];
-        aaa[0] = path;
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-            result = cursor.getString(6);
-        }
-        cursor.close();
-        return result;
-    }*/
-
-    //不正解フラグ変更
-    /*public void flgJx(SQLiteDatabase db, String path ,String year){
-        String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE mondai_id = ?";
-        String aaa[];
-        aaa = new String[1];
-        aaa[0] = path;
-        aaa[1] = "29";
-        db.execSQL(deleteSql,aaa);
-    }*/
     //不正解フラグ変更
     public void flgJ(SQLiteDatabase db, String path ,String year,String season){
         String deleteSql = "UPDATE question SET mondai_flg = 'J' WHERE no = ? AND year = ? AND season = ?;";
@@ -261,11 +211,11 @@ public class DBManager2 extends SQLiteOpenHelper {
         db.execSQL(deleteSql,aaa);
     }
     //正解フラグ変更
-    public void flgR(SQLiteDatabase db, String path ,String year,String season){
+    public void flgR(SQLiteDatabase db, String no ,String year,String season){
         String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE no = ? AND year = ? AND season = ?;";
         String aaa[];
         aaa = new String[3];
-        aaa[0] = path;
+        aaa[0] = no;
         aaa[1] = year;
         aaa[2] = season;
         db.execSQL(deleteSql,aaa);
@@ -288,27 +238,6 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
 
-    //正解フラグ変更
-   /* public void flgRx(SQLiteDatabase db, int id){
-        String deleteSql = "UPDATE question SET mondai_flg = 'R' WHERE mondai_id = ?";
-        db.execSQL(deleteSql,new String[]{String.valueOf(id)});
-    }*/
-    //不正解問題表示
-    /*public String huseikai(SQLiteDatabase db , String year) {
-        String result = null;
-        String select = "SELECT * FROM question WHERE year = ? AND mondai_flg = 'J';";
-        String aaa[];
-        aaa = new String[1];
-        aaa[0] = year;
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-            result = cursor.getString(6);
-        }
-        cursor.close();
-        return result;
-    }*/
 
     public SQLiteCursor miss(SQLiteDatabase db , String year , String season) {
         String select = "SELECT no || '問目' AS '_id' FROM question WHERE year = ? AND season = ? AND mondai_flg = 'J';";
@@ -320,12 +249,17 @@ public class DBManager2 extends SQLiteOpenHelper {
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
         return cursor;
     }
-    public SQLiteCursor miss(SQLiteDatabase db) {
+    /*public SQLiteCursor miss(SQLiteDatabase db) {
         String select = "SELECT no || '問目' AS '_id' FROM question;";
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
         return cursor;
-    }
+    }*/
 
+
+
+
+
+    //------path関連表示
 
     //path答え表示用
     public  String pathanswer(SQLiteDatabase db, String id) {
@@ -396,6 +330,12 @@ public class DBManager2 extends SQLiteOpenHelper {
         return  result;
     }
 
+
+
+
+
+/////etonのジャンル別用---------
+
     //pathジャンル別の正解カウント
     public void genrecountpath(SQLiteDatabase db, String path){
         String deleteSql = "UPDATE genre SET genre_seikai = genre_seikai + 1 , genre_count = genre_count + 1 WHERE genre_id = (select genre_id from question where imgpath = ?);";
@@ -435,25 +375,6 @@ public class DBManager2 extends SQLiteOpenHelper {
         aaa[2] = season;
         db.execSQL(deleteSql,aaa);
     }
-
-    //ジャンル別の正解数を持ってくる　"３"の部分が正解数”４”回答した全体数
-    /*public String genretoukei(SQLiteDatabase db , String genre) {
-        String result = null;
-        String select = "SELECT * FROM genre WHERE genre_id = ?";
-        String aaa[];
-        aaa = new String[1];
-        aaa[0] = genre;
-
-        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
-        if (cursor.getCount() != 0) {
-            cursor.moveToFirst();
-            result = cursor.getString(3);
-        }
-        cursor.close();
-        return result;
-    }*/
-
-
 
     public Genremodel genre1(SQLiteDatabase db) {
         Genremodel result = new Genremodel();
@@ -551,4 +472,77 @@ public class DBManager2 extends SQLiteOpenHelper {
         cursor.close();
         return result;
     }
+
+    //uema
+
+    public void insertuema(SQLiteDatabase db, String path){
+        String deleteSql = "INSERT INTO `uema`(`id`)\n" +
+                "select mondai_id\n" +
+                "from question\n" +
+                "where imgpath = ?;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = path;
+        db.execSQL(deleteSql,aaa);
+    }
+
+    public void insertuema(SQLiteDatabase db, String no,String year ,String season){
+        String deleteSql = "INSERT INTO uema(mondai_id) select mondai_id from question where no = ? AND year = ? AND season = ?;";
+        String aaa[];
+        aaa = new String[3];
+        aaa[0] = no;
+        aaa[1] = year;
+        aaa[2] = season;
+        db.execSQL(deleteSql,aaa);
+    }
+
+    public SQLiteCursor missuema(SQLiteDatabase db) {
+        String select = "SELECT * FROM uema;";
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
+        return cursor;
+    }
+    public void goodbyuema(SQLiteDatabase db) {
+        String select = "DELETE FROM uema;";
+        db.execSQL(select);
+    }
+
+    public String whatuema(SQLiteDatabase db , String _id) {
+
+        String result = null;
+        String select = "SELECT mondai_id FROM uema WHERE _id = ?;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = _id;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            result = cursor.getString(0);
+        }
+        cursor.close();
+        return result;
+    }
+
+
+    public String questionuema(SQLiteDatabase db , String _id) {
+
+        String result = null;
+        String select = "SELECT * FROM question WHERE mondai_id = ? ;";
+        String aaa[];
+        aaa = new String[1];
+        aaa[0] = _id;
+
+        SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,aaa);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+
+            result = cursor.getString(6);
+        }
+        cursor.close();
+        return result;
+    }
+
+
+
+
 }

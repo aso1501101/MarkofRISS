@@ -23,30 +23,13 @@ public class result extends AppCompatActivity
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
 
-
+    int selectedID = -1;
+    int lastPosiotion = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-       /* LinearLayout cardLinear = (LinearLayout)this.findViewById(R.id.cardLinear);
-        cardLinear.removeAllViews();
-
-        for (int i = 0; i < 5; i++) {
-            LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.test_card,null);
-                CardView cardView = (CardView) linearLayout.findViewById(R.id.cardView);
-                TextView textBox = (TextView) linearLayout.findViewById(R.id.textBox);
-                textBox.setText("CardView" + i);
-                cardView.setTag(i);
-                cardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(result.this, String.valueOf(v.getTag()) + "番目のCardViewがクリックされました。", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                cardLinear.addView(linearLayout,i);
-        } */
     }
 
     @Override
@@ -61,7 +44,7 @@ public class result extends AppCompatActivity
         String counts = "";
         String counta = "";
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         counts = intent.getStringExtra("counts");
         counta = intent.getStringExtra("count");
 
@@ -72,6 +55,8 @@ public class result extends AppCompatActivity
         countse = countse - 1;
         counta = String.valueOf(countse);
 
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
 
         TextView tv = (TextView) findViewById(R.id.textViewexact);
         tv.setText(counts);
@@ -83,19 +68,21 @@ public class result extends AppCompatActivity
         btntop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbm.goodbyuema(sqlDB);
                 Intent intent = new Intent(result.this, MainActivity.class);
                 startActivity(intent);
             }
         });
 
+        ListView listMiss = null;
         //flgがうんこだったらリストヴューつかわない
         String flg = "";
-               flg = intent.getStringExtra("flg");
+        flg = intent.getStringExtra("flg");
         if ("unk".equals(flg)) {
 
-        }else {
+        } else {
             //リストビュー
-            ListView listMiss = (ListView) findViewById(R.id.list_miss);
+            listMiss = (ListView) findViewById(R.id.list_miss);
         /*listMiss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -104,6 +91,24 @@ public class result extends AppCompatActivity
         });*/
             setValueToList(listMiss, year, season);
         }
+
+        listMiss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                SQLiteCursor cursor = (SQLiteCursor) parent.getItemAtPosition(position);
+
+                selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
+                String uemamozi = String.valueOf(selectedID);
+                uemamozi = dbm.whatuema(sqlDB,uemamozi);
+
+                Intent intent = new Intent(result.this, question_uema.class);
+
+                intent.putExtra("uema",uemamozi);
+                startActivity(intent);
+            }
+
+        });
     }
 
     //リスト表示用
@@ -118,12 +123,13 @@ public class result extends AppCompatActivity
         sqlDB = dbm.getWritableDatabase();
 
         //DBManager.javaで定義したメソッドを呼び出し
-        cursor = dbm.miss(sqlDB, year, season);
+        //cursor = dbm.miss(sqlDB, year, season);
+        cursor = dbm.missuema(sqlDB);
 
         //dblayout : リストビューの表示形式を指定する
         int dblayout = android.R.layout.simple_list_item_2;
         //from : リストビューに表示する列
-        String[] from = {"_id"};
+        String[] from = {"mondai_id"};
         //to : ListViewのどこにデータを表示するか
         int[] to = new int[]{android.R.id.text1};
 
@@ -131,5 +137,14 @@ public class result extends AppCompatActivity
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, dblayout, cursor, from, to, 0);
         //アダプタをListViewにセット
         list.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+/*        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+        dbm.goodbyuema(sqlDB);*/
     }
 }
