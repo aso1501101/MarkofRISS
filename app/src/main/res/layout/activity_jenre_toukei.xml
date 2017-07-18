@@ -25,8 +25,10 @@
         android:layout_height="wrap_content"
         android:shrinkColumns="0"
         android:stretchColumns="0"
-        android:layout_below="@id/textView2"
-        android:layout_marginTop="35dp">
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -290,9 +292,9 @@
                 android:id="@+id/genre_5"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
-                android:gravity="center_vertical"
                 android:background="@color/white"
-                android:text= "@string/sc_kanri"
+                android:gravity="center_vertical"
+                android:text="@string/sc_gijutu"
                 android:textColor="@color/orange" />
 
             <TextView
@@ -335,10 +337,11 @@
                 android:id="@+id/genre_6"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
-                android:gravity="center_vertical"
                 android:background="@color/ivory"
-                android:text= "@string/db_nw"
-                android:textColor="@color/orange" />
+                android:gravity="center_vertical"
+                android:text="@string/db_nw"
+                android:textColor="@color/orange"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/seikai_6"
@@ -425,10 +428,11 @@
                 android:id="@+id/genre_8"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
-                android:gravity="center_vertical"
                 android:background="@color/ivory"
-                android:text= "@string/ma_si"
-                android:textColor="@color/orange" />
+                android:gravity="center_vertical"
+                android:text="@string/ma_si"
+                android:textColor="@color/orange"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/seikai_8"

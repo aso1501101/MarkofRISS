@@ -39,6 +39,8 @@ public class question_uema extends AppCompatActivity {
 
         Mondaimodel uema = dbm.questionuema(sqlDB,mondai_id);
 
+        mondai_id = dbm.whatuema2(sqlDB,mondai_id);
+
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(uema.get_Path()),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
