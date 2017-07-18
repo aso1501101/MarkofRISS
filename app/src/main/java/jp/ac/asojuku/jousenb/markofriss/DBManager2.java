@@ -524,9 +524,9 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
 
-    public String questionuema(SQLiteDatabase db , String _id) {
+    public Mondaimodel questionuema(SQLiteDatabase db , String _id) {
 
-        String result = null;
+        Mondaimodel result = new Mondaimodel();
         String select = "SELECT * FROM question WHERE mondai_id = ? ;";
         String aaa[];
         aaa = new String[1];
@@ -536,13 +536,20 @@ public class DBManager2 extends SQLiteOpenHelper {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
 
-            result = cursor.getString(6);
+            result.set_Path(cursor.getString(6));
+            result.set_Ans(cursor.getString(4));
+            result.set_Ansk(cursor.getString(5));
+            result.set_id(cursor.getString(0));
+
         }
         cursor.close();
         return result;
     }
 
-
-
+    //リセット
+    public void reset(SQLiteDatabase db){
+        String deleteSql = "update genre set genre_seikai = 0,genre_count = 0;";
+        db.execSQL(deleteSql);
+    }
 
 }

@@ -41,12 +41,9 @@ public class result extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        String counts = "";
-        String counta = "";
-
         final Intent intent = getIntent();
-        counts = intent.getStringExtra("counts");
-        counta = intent.getStringExtra("count");
+        final String counts = intent.getStringExtra("counts");
+         String counta = intent.getStringExtra("count");
 
         final String year = intent.getStringExtra("year");
         final String season = intent.getStringExtra("season");
@@ -54,6 +51,7 @@ public class result extends AppCompatActivity
         int countse = Integer.parseInt(counta);
         countse = countse - 1;
         counta = String.valueOf(countse);
+        final String countfinal = String.valueOf(countse+1);
 
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
@@ -90,25 +88,29 @@ public class result extends AppCompatActivity
             }
         });*/
             setValueToList(listMiss, year, season);
+
+
+            listMiss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    SQLiteCursor cursor = (SQLiteCursor) parent.getItemAtPosition(position);
+
+                    selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
+                    String uemamozi = String.valueOf(selectedID);
+                    uemamozi = dbm.whatuema(sqlDB, uemamozi);
+
+                    Intent intent = new Intent(result.this, question_uema.class);
+
+                    intent.putExtra("uema", uemamozi);
+                    intent.putExtra("count", countfinal);
+                    intent.putExtra("counts", counts);
+
+                    startActivity(intent);
+                }
+
+            });
         }
-
-        listMiss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                SQLiteCursor cursor = (SQLiteCursor) parent.getItemAtPosition(position);
-
-                selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
-                String uemamozi = String.valueOf(selectedID);
-                uemamozi = dbm.whatuema(sqlDB,uemamozi);
-
-                Intent intent = new Intent(result.this, question_uema.class);
-
-                intent.putExtra("uema",uemamozi);
-                startActivity(intent);
-            }
-
-        });
     }
 
     //リスト表示用

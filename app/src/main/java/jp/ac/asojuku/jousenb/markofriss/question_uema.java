@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class question_uema extends AppCompatActivity {
 
+    private static final long serialVersionUID = 1L;
     private SQLiteDatabase sqlDB;
     DBManager2 dbm;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,41 +28,38 @@ public class question_uema extends AppCompatActivity {
         Intent intent = getIntent();
         String mondai_id = intent.getStringExtra("uema");
 
+        final String counts = intent.getStringExtra("counts");
+        final String count = intent.getStringExtra("count");
+
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
         //imageView3.setImageResource(R.drawable.s29_01);
 
-        String path = dbm.questionuema(sqlDB,mondai_id);
+        Mondaimodel uema = dbm.questionuema(sqlDB,mondai_id);
 
-        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
+        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(uema.get_Path()),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
         tv.setText(mondai_id);
 
-        /*final String answer = dbm.selectanswer(sqlDB,count,year,season);
-        final String seikai = dbm.selectkigo(sqlDB,count,year,season);*/
+        final String answer = uema.get_Ans();
+        final String seikai = uema.get_Ansk();
 
-       /* Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
+       Button btnSelectA = (Button) this.findViewById(R.id.buttonA);
         btnSelectA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String a = "ア";
 
-                Intent intent = new Intent(question_uema.this, Answer.class);
+                Intent intent = new Intent(question_uema.this, Ansewer_uema.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count",count);
                 intent.putExtra("counts",counts);
-
-                intent.putExtra("season",season);
-                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
@@ -74,19 +71,13 @@ public class question_uema extends AppCompatActivity {
                 String a = "イ";
                 //String answer = dbm.selectanswer(sqlDB,count);
                 //String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question_uema.this, Answer.class);
+                Intent intent = new Intent(question_uema.this, Ansewer_uema.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count",count);
                 intent.putExtra("counts",counts);
-
-                intent.putExtra("season",season);
-                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
@@ -98,19 +89,13 @@ public class question_uema extends AppCompatActivity {
                 String a = "ウ";
                 //String answer = dbm.selectanswer(sqlDB,count);
                 //String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question_uema.this, Answer.class);
+                Intent intent = new Intent(question_uema.this, Ansewer_uema.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count",count);
                 intent.putExtra("counts",counts);
-
-                intent.putExtra("season",season);
-                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
@@ -122,23 +107,17 @@ public class question_uema extends AppCompatActivity {
                 String a = "エ";
                 //String answer = dbm.selectanswer(sqlDB,count);
                 //String seikai = dbm.selectkigo(sqlDB,count);
-                Intent intent = new Intent(question_uema.this, Answer.class);
+                Intent intent = new Intent(question_uema.this, Ansewer_uema.class);
                 intent.putExtra("ANSWER",a);
                 intent.putExtra("ans",answer);
                 intent.putExtra("seikai",seikai);
 
-                int countx = Integer.parseInt(count);
-                countx = countx + 1;
-                String countst = String.valueOf(countx);
-                intent.putExtra("count",countst);
+                intent.putExtra("count",count);
                 intent.putExtra("counts",counts);
-
-                intent.putExtra("season",season);
-                intent.putExtra("year",year);
 
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
