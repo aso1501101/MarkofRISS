@@ -89,7 +89,6 @@ public class result extends AppCompatActivity
         });*/
             setValueToList(listMiss, year, season);
 
-
             listMiss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

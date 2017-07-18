@@ -487,7 +487,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     public void insertuema(SQLiteDatabase db, String no,String year ,String season){
-        String deleteSql = "INSERT INTO uema(mondai_id) select mondai_id from question where no = ? AND year = ? AND season = ?;";
+        String deleteSql = "INSERT INTO uema(mondai_id,year,no,season) select mondai_id,year,no,CASE WHEN season LIKE 's' THEN '春' WHEN season NOT LIKE 'f' THEN '秋' END season from question where no = ? AND year = ? AND season = ?;";
         String aaa[];
         aaa = new String[3];
         aaa[0] = no;
@@ -497,7 +497,7 @@ public class DBManager2 extends SQLiteOpenHelper {
     }
 
     public SQLiteCursor missuema(SQLiteDatabase db) {
-        String select = "SELECT * FROM uema;";
+        String select = "SELECT _id,year ||'年度　'||season||'　問'|| no AS mondai_id FROM uema;";
         SQLiteCursor cursor = (SQLiteCursor) db.rawQuery(select,null);
         return cursor;
     }
