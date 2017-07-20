@@ -52,18 +52,17 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ListView
+        android:id="@+id/list_miss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/btntop">
+        android:layout_marginTop="19dp"
+        android:headerDividersEnabled="false"
+        android:layout_above="@+id/btntop"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
-        <ListView
-            android:id="@+id/listmiss"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+    </ListView>
 
 </RelativeLayout>

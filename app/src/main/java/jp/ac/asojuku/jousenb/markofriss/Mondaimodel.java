@@ -1,11 +1,15 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 2017/06/15.
  */
 
-public class Mondaimodel {
+public class Mondaimodel implements Serializable
+{
 
+    private static final long serialVersionUID = 1L;
     private String id;
     private String path;
     private String ans;

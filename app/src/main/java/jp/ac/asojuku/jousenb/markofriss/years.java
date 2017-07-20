@@ -30,6 +30,8 @@ public class years extends AppCompatActivity {
         dbm = new DBManager2(this);
         sqlDB = dbm.getWritableDatabase();
 
+        dbm.goodbyuema(sqlDB);
+
         setContentView(R.layout.activity_years);
 
         final ListView listView = (ListView) findViewById(R.id.listview1);

@@ -178,6 +178,16 @@ public class jenre_toukei extends AppCompatActivity {
             }
         });
 
+        Button re = (Button)this.findViewById(R.id.reset);
+        re.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbm2.reset(sqlDB);
+                Intent intent1 = new Intent(jenre_toukei.this,jenre_toukei.class);
+                startActivity(intent1);
+            }
+        });
+
     }
 }
 

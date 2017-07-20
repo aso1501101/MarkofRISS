@@ -27,7 +27,9 @@
         <activity android:name=".question" />
         <activity android:name=".question_rireki" />
         <activity android:name=".Answer_rireki" />
-        <activity android:name=".genreanswer"></activity>
+        <activity android:name=".genreanswer" />
+        <activity android:name=".question_uema" />
+        <activity android:name=".Ansewer_uema"></activity>
     </application>
 
 </manifest>
