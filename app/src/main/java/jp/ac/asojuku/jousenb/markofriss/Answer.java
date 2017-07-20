@@ -88,6 +88,7 @@ public class Answer extends AppCompatActivity {
                 intent.putExtra("season",season);
                 intent.putExtra("year",year);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -111,6 +112,7 @@ public class Answer extends AppCompatActivity {
                 intent.putExtra("season",season);
                 intent.putExtra("year",year);
                 startActivity(intent);
+                finish();
             }
         });
 
