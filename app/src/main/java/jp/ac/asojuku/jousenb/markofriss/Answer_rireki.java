@@ -83,6 +83,7 @@ public class Answer_rireki extends AppCompatActivity {
                 intent.putExtra("count",count);
                 intent.putExtra("flg","unk");
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -102,6 +103,7 @@ public class Answer_rireki extends AppCompatActivity {
                 intent.putExtra("counts" ,countst);
                 intent.putExtra("year", year);
                 startActivity(intent);
+                finish();
             }
         });
     }
