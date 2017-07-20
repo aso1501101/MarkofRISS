@@ -115,6 +115,11 @@ public class Answer extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }

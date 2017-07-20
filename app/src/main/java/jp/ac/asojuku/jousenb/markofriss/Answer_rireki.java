@@ -31,7 +31,7 @@ public class Answer_rireki extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer_rireki);
+        setContentView(R.layout.activity_answer);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class Answer_rireki extends AppCompatActivity {
             dbm.genrecountJpath(sqlDB, path);
         }
 
-        TextView tv = (TextView)findViewById(R.id.TextViewseikai);
+        TextView tv = (TextView)findViewById(R.id.textViewseikai);
         tv.setText(seikai);
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);
@@ -104,6 +104,11 @@ public class Answer_rireki extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }

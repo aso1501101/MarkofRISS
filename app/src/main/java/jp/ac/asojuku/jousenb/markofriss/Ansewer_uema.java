@@ -74,6 +74,7 @@ public class Ansewer_uema extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
+
+
 }

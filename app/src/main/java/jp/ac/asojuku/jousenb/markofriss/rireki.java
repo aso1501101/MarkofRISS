@@ -18,9 +18,6 @@ import static android.R.id.list;
 
 public class rireki extends AppCompatActivity {
 
-    private SQLiteDatabase sqlDB;
-    DBManager2 dbm;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,4 +60,5 @@ public class rireki extends AppCompatActivity {
             }
         });
     }
+    
 }

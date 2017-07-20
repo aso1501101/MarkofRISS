@@ -143,9 +143,11 @@ public class result extends AppCompatActivity
     @Override
     protected void onStop() {
         super.onStop();
+    }
 
-/*        dbm = new DBManager2(this);
-        sqlDB = dbm.getWritableDatabase();
-        dbm.goodbyuema(sqlDB);*/
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }

@@ -187,7 +187,12 @@ public class jenre_toukei extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }
 
