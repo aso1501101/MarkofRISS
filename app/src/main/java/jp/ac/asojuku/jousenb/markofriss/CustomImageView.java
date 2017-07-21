@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
-import android.widget.ImageView;
+
 import android.support.v7.widget.AppCompatImageView;
 
 /**
@@ -16,8 +16,8 @@ public class CustomImageView extends AppCompatImageView{
     private Matrix matrix = new Matrix();
     private ScaleGestureDetector scaleGestureDetector;
     private final float SCALE_MAX = 3.0f;
-    private final float SCALE_MIN = 0.5f;
-    private final float PINCH_SENSITIVITY = 5.0f;
+    private final float SCALE_MIN = 1.0f;
+    private final float PINCH_SENSITIVITY = 10.0f;
 
     public CustomImageView(Context context) {
         super(context);
