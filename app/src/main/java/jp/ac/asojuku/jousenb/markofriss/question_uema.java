@@ -64,6 +64,7 @@ public class question_uema extends AppCompatActivity {
                 intent.putExtra("counts",counts);
 
                 startActivity(intent);
+                finish();
             }
         });
         Button btnSelectB = (Button) this.findViewById(R.id.buttonB);
@@ -82,6 +83,7 @@ public class question_uema extends AppCompatActivity {
                 intent.putExtra("counts",counts);
 
                 startActivity(intent);
+                finish();
             }
         });
         Button btnSelectC = (Button) this.findViewById(R.id.buttonC);
@@ -100,6 +102,7 @@ public class question_uema extends AppCompatActivity {
                 intent.putExtra("counts",counts);
 
                 startActivity(intent);
+                finish();
             }
         });
         Button btnSelectD = (Button) this.findViewById(R.id.buttonD);
@@ -118,6 +121,7 @@ public class question_uema extends AppCompatActivity {
                 intent.putExtra("counts",counts);
 
                 startActivity(intent);
+                finish();
             }
         });
     }

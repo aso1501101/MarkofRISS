@@ -82,6 +82,7 @@ public class genrequestion extends AppCompatActivity {
                 intent.putExtra("path",path);
 
                 startActivity(intent);
+                finish();
             }
         });
         Button btnSelectB = (Button) this.findViewById(R.id.buttonB);
@@ -104,6 +105,7 @@ public class genrequestion extends AppCompatActivity {
 
                 intent.putExtra("path",path);
                 startActivity(intent);
+                finish();
             }
         });
         Button btnSelectC = (Button) this.findViewById(R.id.buttonC);
@@ -126,6 +128,7 @@ public class genrequestion extends AppCompatActivity {
 
                 intent.putExtra("path",path);
                 startActivity(intent);
+                finish();
             }
         });
         Button btnSelectD = (Button) this.findViewById(R.id.buttonD);
@@ -148,6 +151,7 @@ public class genrequestion extends AppCompatActivity {
 
                 intent.putExtra("path",path);
                 startActivity(intent);
+                finish();
             }
         });
     }

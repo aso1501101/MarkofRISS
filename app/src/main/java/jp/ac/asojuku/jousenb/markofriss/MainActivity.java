@@ -12,8 +12,6 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private SQLiteDatabase sqlDB;
-    DBManager2 dbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        dbm = new DBManager2(this);
-        sqlDB = dbm.getWritableDatabase();
 
         Button btnPicUp = (Button) this.findViewById(R.id.button);
         Button btnPicUp2 = (Button) this.findViewById(R.id.button2);

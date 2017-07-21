@@ -10,9 +10,6 @@ import android.widget.ImageView;
 
 public class genre extends AppCompatActivity {
 
-    private SQLiteDatabase sqlDB;
-    DBManager2 dbm;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

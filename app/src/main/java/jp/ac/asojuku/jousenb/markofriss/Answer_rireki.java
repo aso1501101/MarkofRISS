@@ -31,7 +31,7 @@ public class Answer_rireki extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer_rireki);
+        setContentView(R.layout.activity_answer);
     }
 
     @Override
@@ -83,6 +83,7 @@ public class Answer_rireki extends AppCompatActivity {
                 intent.putExtra("count",count);
                 intent.putExtra("flg","unk");
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -102,8 +103,14 @@ public class Answer_rireki extends AppCompatActivity {
                 intent.putExtra("counts" ,countst);
                 intent.putExtra("year", year);
                 startActivity(intent);
+                finish();
             }
         });
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }

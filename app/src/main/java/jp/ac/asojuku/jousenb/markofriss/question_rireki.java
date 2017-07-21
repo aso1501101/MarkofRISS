@@ -78,8 +78,8 @@ public class question_rireki extends AppCompatActivity {
                     intent.putExtra("counts", counts);
                     intent.putExtra("year", year);
                     intent.putExtra("path", path);
-
                     startActivity(intent);
+                    finish();
                 }
             });
             Button btnSelectB = (Button) this.findViewById(R.id.buttonB);
@@ -102,6 +102,7 @@ public class question_rireki extends AppCompatActivity {
                     intent.putExtra("year", year);
                     intent.putExtra("path", path);
                     startActivity(intent);
+                    finish();
                 }
             });
             Button btnSelectC = (Button) this.findViewById(R.id.buttonC);
@@ -124,6 +125,7 @@ public class question_rireki extends AppCompatActivity {
                     intent.putExtra("year", year);
                     intent.putExtra("path", path);
                     startActivity(intent);
+                    finish();
                 }
             });
             Button btnSelectD = (Button) this.findViewById(R.id.buttonD);
@@ -146,6 +148,7 @@ public class question_rireki extends AppCompatActivity {
                     intent.putExtra("year", year);
                     intent.putExtra("path", path);
                     startActivity(intent);
+                    finish();
                 }
             });
         }else {
@@ -156,6 +159,7 @@ public class question_rireki extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(question_rireki.this,rireki.class);
                     startActivity(intent1);
+                    finish();
                 }
             });
             //imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf("incorrect"), "drawable", "jp.ac.asojuku.jousenb.markofriss"));

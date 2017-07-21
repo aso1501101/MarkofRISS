@@ -116,9 +116,13 @@ public class years extends AppCompatActivity {
                             item, Toast.LENGTH_LONG
                     ).show();
                 }
-
-
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
     }
 }
