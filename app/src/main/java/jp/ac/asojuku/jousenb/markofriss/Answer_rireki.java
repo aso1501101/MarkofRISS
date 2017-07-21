@@ -65,7 +65,7 @@ public class Answer_rireki extends AppCompatActivity {
             dbm.genrecountJpath(sqlDB, path);
         }
 
-        TextView tv = (TextView)findViewById(R.id.TextViewseikai);
+        TextView tv = (TextView)findViewById(R.id.textViewseikai);
         tv.setText(seikai);
 
         TextView tv2 = (TextView)findViewById(R.id.textViewanswer);

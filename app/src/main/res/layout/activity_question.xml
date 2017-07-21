@@ -49,13 +49,17 @@
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toRightOf="@+id/buttonC" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView3"
         android:scaleType="fitCenter"
         android:layout_width="380dp"
         android:layout_height="434dp"
         tools:layout_editor_absoluteY="-179dp"
-        tools:layout_editor_absoluteX="-37dp" />
+        tools:layout_editor_absoluteX="-37dp" />-->
+
+    <jp.ac.asojuku.jousenb.markofriss.CustomImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/textView5"
