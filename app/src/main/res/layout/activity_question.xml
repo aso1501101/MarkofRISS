@@ -81,20 +81,20 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/buttonA">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="380dp"
-                android:layout_height="434dp"
-                android:scaleType="fitCenter"
-                tools:layout_editor_absoluteX="-37dp"
-                tools:layout_editor_absoluteY="-179dp" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            tools:layout_editor_absoluteX="-37dp"
+            tools:layout_editor_absoluteY="-179dp" />
 
-            <!--<jp.ac.asojuku.jousenb.markofriss.CustomImageView
-                android:id="@+id/imageView3"
-                android:layout_width="7dp"
-                android:layout_height="495dp"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp" />-->
+        <!--<jp.ac.asojuku.jousenb.markofriss.CustomImageView
+            android:id="@+id/imageView3"
+            android:layout_width="7dp"
+            android:layout_height="495dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />-->
     </ScrollView>
 
 </RelativeLayout>
