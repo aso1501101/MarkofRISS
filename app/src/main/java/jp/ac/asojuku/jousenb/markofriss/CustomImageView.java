@@ -25,7 +25,6 @@ public class CustomImageView extends AppCompatImageView{
 
     public CustomImageView(Context context) {
         super(context);
-        init(context);
     }
 
     public  CustomImageView(Context context, AttributeSet attrs) {
