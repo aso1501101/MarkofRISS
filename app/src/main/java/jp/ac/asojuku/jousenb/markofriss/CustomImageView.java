@@ -1,6 +1,8 @@
 package jp.ac.asojuku.jousenb.markofriss;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -14,6 +16,11 @@ import android.support.v7.widget.AppCompatImageView;
  */
 
 public class CustomImageView extends AppCompatImageView{
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
+    String count = "";
+
+
     private Matrix matrix = new Matrix();
     private ScaleGestureDetector scaleGestureDetector;
     private final float SCALE_MAX = 3.0f;
@@ -36,7 +43,13 @@ public class CustomImageView extends AppCompatImageView{
     }
 
     private  void init(Context context) {
-        setImageResource(R.drawable.s29_01);
+       /* Intent intent = getIntent();
+        count = intent.getStringExtra("count");
+        final String year = intent.getStringExtra("year");
+        final String season = intent.getStringExtra("season");*/
+
+        //String path = dbm.selectcount(sqlDB,count,year,season);
+        //setImageResource(R.drawable.s29_01);
         setScaleType(ScaleType.MATRIX);
         scaleGestureDetector = new ScaleGestureDetector(context, simpleOnScaleGestureListener);
     }

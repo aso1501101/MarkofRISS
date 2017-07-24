@@ -43,7 +43,7 @@ public class question extends AppCompatActivity {
 
         String path = dbm.selectcount(sqlDB,count,year,season);
 
-        //imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
+        imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
         tv.setText(count);

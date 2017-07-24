@@ -58,6 +58,7 @@
         tools:layout_editor_absoluteX="-37dp" />-->
 
     <jp.ac.asojuku.jousenb.markofriss.CustomImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
