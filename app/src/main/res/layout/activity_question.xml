@@ -34,53 +34,52 @@
         android:id="@+id/buttonB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_toLeftOf="@+id/buttonC"
-        android:layout_toStartOf="@+id/buttonC"
+
         android:text="イ"
         app:layout_constraintLeft_toRightOf="@+id/buttonA"
         app:layout_constraintTop_toTopOf="@+id/buttonA"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonA"
+        android:layout_toEndOf="@+id/buttonA" />
 
     <Button
         android:id="@+id/buttonC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_toLeftOf="@+id/buttonD"
-        android:layout_toStartOf="@+id/buttonD"
+
         android:text="ウ"
         app:layout_constraintLeft_toRightOf="@+id/buttonB"
         app:layout_constraintTop_toTopOf="@+id/buttonB"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonB"
+        android:layout_toEndOf="@+id/buttonB" />
 
     <Button
         android:id="@+id/buttonD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:text="エ"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonC"
         app:layout_constraintLeft_toRightOf="@+id/buttonC"
         tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        tools:layout_constraintLeft_creator="1"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonC"
+        android:layout_toEndOf="@+id/buttonC" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/buttonA">
 
             <ImageView
                 android:id="@+id/imageView3"

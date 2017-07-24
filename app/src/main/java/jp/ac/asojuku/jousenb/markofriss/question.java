@@ -46,7 +46,8 @@ public class question extends AppCompatActivity {
         imageView3.setImageResource(this.getResources().getIdentifier(String.valueOf(path),"drawable", "jp.ac.asojuku.jousenb.markofriss"));
 
         TextView tv = (TextView)findViewById(R.id.textView5);
-        tv.setText(count);
+        String  count2 = year+"年度　問"+count;
+        tv.setText(count2);
 
         final String answer = dbm.selectanswer(sqlDB,count,year,season);
         final String seikai = dbm.selectkigo(sqlDB,count,year,season);

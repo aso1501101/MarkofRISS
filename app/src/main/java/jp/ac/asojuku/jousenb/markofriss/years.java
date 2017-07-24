@@ -77,9 +77,9 @@ public class years extends AppCompatActivity {
                     String season = item.substring(4,5);
 
                     Intent intent = new Intent(years.this, question.class);
-                    Intent intent2 = new Intent(years.this,CustomImageView.class);
+                    //Intent intent2 = new Intent(years.this,CustomImageView.class);
                     intent.putExtra("year" , year);
-                    intent2.putExtra("year" , year);
+                    //intent2.putExtra("year" , year);
 
                     if(season.equals("秋")){
                         season = "f";
@@ -87,11 +87,10 @@ public class years extends AppCompatActivity {
                         season = "s";
                     }
                     intent.putExtra("season" , season);
-                    intent2.putExtra("season" , season);
-
+                    //intent2.putExtra("season" , season);
 
                     intent.putExtra("count" , "1");
-                    intent2.putExtra("count" , "1");
+                    //intent2.putExtra("count" , "1");
                     intent.putExtra("counts" , "0");
                     startActivity(intent);
                 }else if(item.equals("28年度秋期試験")){
