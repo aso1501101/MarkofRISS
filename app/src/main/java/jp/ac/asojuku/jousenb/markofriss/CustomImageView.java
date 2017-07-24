@@ -16,13 +16,9 @@ import android.support.v7.widget.AppCompatImageView;
  */
 
 public class CustomImageView extends AppCompatImageView{
-    private SQLiteDatabase sqlDB;
-    DBManager2 dbm;
-    String count = "";
-
-
     private Matrix matrix = new Matrix();
     private ScaleGestureDetector scaleGestureDetector;
+    private GestureDetector gestureDetector;
     private final float SCALE_MAX = 3.0f;
     private final float SCALE_MIN = 1.0f;
     private final float PINCH_SENSITIVITY = 10.0f;
@@ -43,15 +39,9 @@ public class CustomImageView extends AppCompatImageView{
     }
 
     private  void init(Context context) {
-       /* Intent intent = getIntent();
-        count = intent.getStringExtra("count");
-        final String year = intent.getStringExtra("year");
-        final String season = intent.getStringExtra("season");*/
-
-        //String path = dbm.selectcount(sqlDB,count,year,season);
-        //setImageResource(R.drawable.s29_01);
         setScaleType(ScaleType.MATRIX);
         scaleGestureDetector = new ScaleGestureDetector(context, simpleOnScaleGestureListener);
+        gestureDetector = new GestureDetector(context,simpleOnGestureListener);
     }
 
     @Override
