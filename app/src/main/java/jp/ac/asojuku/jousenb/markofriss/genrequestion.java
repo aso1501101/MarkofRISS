@@ -19,6 +19,7 @@ public class genrequestion extends AppCompatActivity {
     String genre = "";
     String count = "1";
     String countst = "";
+    String path = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class genrequestion extends AppCompatActivity {
 
         count = intent.getStringExtra("count");
         final String counts = intent.getStringExtra("counts");
+        path = intent.getStringExtra("path");
 
         int countx = Integer.parseInt(count);
         countx = countx + 1;
@@ -46,7 +48,7 @@ public class genrequestion extends AppCompatActivity {
 
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
 
-        final String path = dbm.selectgenre(sqlDB,genre);
+        //path = dbm.selectgenre(sqlDB,genre);
 
         String season = dbm.pathseason(sqlDB,path);
         String year = dbm.pathyear(sqlDB,path);

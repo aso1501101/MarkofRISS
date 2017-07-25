@@ -18,6 +18,10 @@ import static android.R.id.list;
 
 public class rireki extends AppCompatActivity {
 
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
+    String path ="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,10 @@ public class rireki extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+
+
         Button btnPicUp = (Button) this.findViewById(R.id.button28);
         btnPicUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +44,7 @@ public class rireki extends AppCompatActivity {
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
                 intent.putExtra("year","28");
+                intent.putExtra("path", dbm.selectrireki(sqlDB, "28"));
                 startActivity(intent);
             }
         });
@@ -47,6 +56,7 @@ public class rireki extends AppCompatActivity {
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
                 intent.putExtra("year","29");
+                intent.putExtra("path", dbm.selectrireki(sqlDB, "29"));
                 startActivity(intent);
             }
         });

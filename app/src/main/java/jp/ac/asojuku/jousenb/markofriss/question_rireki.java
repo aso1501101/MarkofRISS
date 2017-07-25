@@ -34,6 +34,7 @@ public class question_rireki extends AppCompatActivity {
         count = intent.getStringExtra("count");
         final String counts = intent.getStringExtra("counts");
         year = intent.getStringExtra("year");
+        path = intent.getStringExtra("path");
 
         int countx = Integer.parseInt(count);
         countx = countx + 1;
@@ -43,7 +44,7 @@ public class question_rireki extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
 
         ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
-        path = dbm.selectrireki(sqlDB, year);
+        //path = dbm.selectrireki(sqlDB, year);
         if (path != null) {
 
 

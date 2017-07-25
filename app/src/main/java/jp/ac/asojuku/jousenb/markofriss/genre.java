@@ -10,6 +10,9 @@ import android.widget.ImageView;
 
 public class genre extends AppCompatActivity {
 
+    private SQLiteDatabase sqlDB;
+    DBManager2 dbm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +22,10 @@ public class genre extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        dbm = new DBManager2(this);
+        sqlDB = dbm.getWritableDatabase();
+
         Intent intent = new Intent(genre.this,genrequestion.class);
 
         Button btnsc = (Button)this.findViewById(R.id.button_sc);
@@ -29,6 +36,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","1");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "1"));
                 startActivity(intent);
             }
         });
@@ -41,6 +49,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","2");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "2"));
                 startActivity(intent);
             }
         });
@@ -53,6 +62,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","3");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "3"));
                 startActivity(intent);
             }
         });
@@ -65,6 +75,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","4");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "4"));
                 startActivity(intent);
             }
         });
@@ -77,6 +88,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","5");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "5"));
                 startActivity(intent);
             }
         });
@@ -89,6 +101,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","6");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "6"));
                 startActivity(intent);
             }
         });
@@ -101,6 +114,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","7");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "7"));
                 startActivity(intent);
             }
         });
@@ -113,6 +127,7 @@ public class genre extends AppCompatActivity {
                 intent.putExtra("genre","8");
                 intent.putExtra("counts" ,"0");
                 intent.putExtra("count","1");
+                intent.putExtra("path", dbm.selectgenre(sqlDB, "8"));
                 startActivity(intent);
             }
         });

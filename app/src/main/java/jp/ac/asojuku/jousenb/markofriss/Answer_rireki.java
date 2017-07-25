@@ -95,13 +95,16 @@ public class Answer_rireki extends AppCompatActivity {
                 if ("g".equals(flg)){
                     intent = new Intent(Answer_rireki.this, genrequestion.class);
                     intent.putExtra("genre",genre);
+                    path = dbm.selectgenre(sqlDB,genre);
                 }else {
                     intent = new Intent(Answer_rireki.this, question_rireki.class);
+                    path = dbm.selectrireki(sqlDB, year);
+                    intent.putExtra("year", year);
                 }
                 String countst = String.valueOf(counts);
                 intent.putExtra("count" ,count);
                 intent.putExtra("counts" ,countst);
-                intent.putExtra("year", year);
+                intent.putExtra("path", path);
                 startActivity(intent);
                 finish();
             }
